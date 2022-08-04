@@ -1,0 +1,61 @@
+body {
+  background-color: #212121ee;
+  color: #fefefe;
+}
+.content {
+	margin-top: 64px;
+}
+a {
+	color: #ddd;
+	text-decoration: underline;
+}
+ol.gradient-list {
+	counter-reset: gradient-counter;
+	list-style: none;
+	margin: 1.75rem 0;
+	padding-left: 0;
+}
+ol.gradient-list > li {
+	background: #212121;
+	border-radius: 0.5rem 0.5rem 0 0;
+	counter-increment: gradient-counter;
+	margin-top: 1rem;
+	min-height: 3rem;
+	padding: 2rem 1rem 1rem 2rem;
+	position: relative;
+}
+ol.gradient-list > li::before, ol.gradient-list > li::after {
+	border-radius: 5rem 5rem 5rem 5rem;
+	content: "";
+	height: 3rem;
+	left: -1rem;
+	overflow: hidden;
+	position: absolute;
+	top: -1rem;
+	width: 3rem;
+}
+ol.gradient-list > li::before {
+  content: counter(gradient-counter);
+  color: white;
+  display: flex;
+  font: 900 1.5em/1 "mikhak";
+  justify-content: center;
+  align-items: center;
+  padding: 0.125em 0.25em;
+  z-index: 1;
+}
+.data {
+	background-color: #343a40;
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+	color: white;
+}
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

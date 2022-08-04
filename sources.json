@@ -1,0 +1,10 @@
+{
+	"groups": [{
+		"name": "source1",
+		"developer": "dev1",
+		"URL": "https://github.com/Bahman-Ahmadi/rubika/archive/refs/tags/v_523.zip"
+	}],
+	"channels": [],
+	"privates": [],
+	"multiplatforms": []
+}
