@@ -17,16 +17,16 @@ body {
 	border-radius: 3px;
 	margin-right: 12px;
 	margin-bottom: 20px;
-	background: #424242;
+	background: #F5F5F5;
+	box-shadow: #eeeeeeaa;
 	border: 1px solid #000;
 }
 .item-title {
 	margin: 8px;
-	color: gold;
+	color: #574AE2;
 	font-size: 18px;
 	font-weight: bold;
-	font-family: "vazir";
-	
+	font-family: "vazirb";
 }
 .item {
 	border: none; 
@@ -42,12 +42,12 @@ body {
 	border-top: 0.1px solid #000;
 }
 .right {
-	color: #FFF;
+	color: black;
 	float: right;
 }
 .left {
 	float: left;
-	color: #e0e0e0;
+	color: darkgray;
 	
 }
 .item span {

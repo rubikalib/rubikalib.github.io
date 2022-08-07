@@ -14,7 +14,7 @@ body {
 	width: fit-content;
 	height: fit-content;
 	position: absolute;
-	font-family: "vazir";
+	font-family: "vazirb";
 }
 .text1 {
 	font-size: 30px;
@@ -66,7 +66,7 @@ a {
 .title {
 	margin-top: auto;
 	margin-bottom: auto;
-	font-family: "vazir";
+	font-family: "vazirb";
 }
 .fa-info, .fa-bolt, .code {
 	transform: translate(50%, -65%);
@@ -303,7 +303,7 @@ a {
 	src: url("../assets/vazir.ttf");
 }
 @font-face {
-	font-family: "vazir";
+	font-family: "vazirb";
 	src: url("../assets/vazir_black.ttf");
 }
 @font-face {

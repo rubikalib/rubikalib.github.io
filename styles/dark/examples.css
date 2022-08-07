@@ -27,35 +27,37 @@ body {
 	color: rgb(253,173,13);
 	font-size: 18px;
 	font-weight: bold;
-	font-family: "yekan";
-	
+	font-family: vazirb;
+
 }
 .top-item {
 	border-top: 0.1px solid #000;
 }
 .item {
-	border: none; 
+	border: none;
 	display: flex;
 	outline: none;
 	font-size: 18px;
-	cursor: pointer; 
+	cursor: pointer;
 	overflow: hidden;
 	padding: 6px 12px;
 	position: relative;
 	border-radius: 3px;
 	padding-right: 20px;
-	font-family: iransans;
+	font-family: vazir;
+	background: #212121;
 	border-top: 0.1px solid #000;
 }
 .right {
 	float: right;
+	color: white;
 	font-weight: bold;
 }
 .left {
 	float: left;
-	color: #888;
+	color: lightgray;
 	margin-right: auto;
-	
+
 }
 .item span {
 	opacity: 0;
@@ -66,7 +68,7 @@ body {
 	border-radius: 50%;
 	position: absolute;
 	animation: ripple 1s;
-	background: rgba(0, 0, 0, 100);
+	/*background: rgba(0, 0, 0, 100);*/
 }
 @keyframes ripple {
 	from {
