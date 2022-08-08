@@ -7,7 +7,8 @@ xhr.onreadystatechange = function () {
 		keys = this.responseText.match(/"\d\.\d\.\d/g);
 	}
 };
-xhr.open("GET", "../db.json", false);
+var d = new Date();
+xhr.open("GET", `../db.json?${d.getTime()}`, false);
 xhr.send();
 
 try {

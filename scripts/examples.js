@@ -46,7 +46,8 @@ function XHR() {
 			}
 		}
 	};
-	xhr.open("GET", "../sources.json", false);
+	var d = new Date();
+	xhr.open("GET", `../sources.json?${d.getTime()}`, false);
 	xhr.send();
 }
 setInterval(XHR(), 1000);
