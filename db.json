@@ -193,7 +193,8 @@
             "checkPassword",
             "deleteFolder",
             "deleteUserChat",
-            "disablePassword"
+            "disablePassword",
+            "editFolder"
         ],
         "titles": [
             "افزودن مخاطب",
@@ -207,7 +208,8 @@
             "بررسی رمزعبور دومرحله‌ای",
             "حذف پوشه",
             "حذف چت‌روم کاربر",
-            "غیرفعالسازی رمزعبور دومرحله‌ای"
+            "غیرفعالسازی رمزعبور دومرحله‌ای",
+            "ویرایش پوشه<br>برای"
         ],
         "descriptions": [
             "برای افزودن مخاطب به مخاطبین موجود در حساب روبیکا کافیه طبق این آموزش عمل کنید.<br/>\nخب اول از همه به کد زیر توجه کنید:<br/>\n<pre><code class=\"language_python\">\nfrom rubika import Bot\n\nbot = Bot(\"AddContact\", \"AUTH\")\n\nbot.addContact(\"FirstName\", \"LastName\", \"09123456789\")\n</code></pre>\nدر خط اول کتابخونه روبیکا رو import کردیم داخل پروژمون.<br/>\nدر خط دوم یک instance از کلاس Bot ساختیم و پارامتر اول که نام پروژمون هست رو برابر AddContact قرار دادیم (البته که این نام رو میتونید به مقدار دلخواه خودتون تغییر بدید) و پارامتر دوم که شناسهٔ حساب‌کاربری یا auth هست رو برابر AUTH قرار دادیم (شما باید این مقدار رو با شناسهٔ اکانت خودتون که یک String ۳۲ کاراکتری هست جایگزین کنین).<br/>\nاما خط سوم که قسمت اصلی کد ما هست، شامل دستور افزودن مخاطب هست. در این خط از متغییر bot که همون instance ساخته شده در خط دوم هست ، متد addContact رو فراخوانی کردیم؛ سپس پارامتر های موردنیاز رو بهش میدیم که پارامتر اول این متد first name یا نام مخاطب هست، پارامتر دوم last name یا نام خانوادگی مخاطب هست و پارامتر سوم شماره تلفن مخاطب هستش که باید با ۰ شروع بشه و تعداد ۱۱ کاراکتر داره.<br/> تمامی پارامتر ها به نوع String هستن .",
@@ -221,7 +223,8 @@
             "حالا که رمزعبور روی اکانتمون گذاشتیم ممکنه لازم داشته باشیم که بررسی کنیم رمزعبورمون رو هنوز یادمونه یا نه!<br> به این کد توجه کنید: <pre><code class=\"language-python\">from rubika.client import Bot\n bot = Bot(\"CheckPassword\", \"AUTH\")\n bot.checkPassword(\"PASSWORD\")</code></pre> حالا کافیه بجای AUTH شناسه اکانت و بجای PASSWORD رمزعبورتون رو جهت بررسی قرار بدین. خروجی خط سوم یک bool خواهد بود که در صورت تطبیق رمزعبور وارد شده با رمزعبوری که از قبل تنظیم شده True و در غیر این صورت False برمیگردونه.",
             "اگه بخواین یک پوشه رو حذف کنین کافیه طبق این دستورالعمل پیش برین.<br> خب وقتی که از متد <a href=\"/docs.html?v=6.0.0&doc=addFolder\">addFolder</a> استفاده میکنین در خروجی اطلاعات مختلفی بهتون ارائه میده درمورد پوشه‌ای که ساختید، یکی از این اطلاعات folder_id هست که برای حذف پوشه نیاز به این مورد داریم. حالا به این مثال توجه کنید: <pre><code class=\"language-python\">from rubika.client import Bot\n bot = Bot(\"DeleteFolder\", \"AUTH\")\n bot.deleteFolder(\"FOLDER_ID\")</code></pre> پیش‌نیاز های لازم رو انجام میدیم و سپس کافیه بجای FOLDER_ID در خط سوم ، آیدی پوشه‌ای که درموردش پیشتر صحبت کردیم رو جایگزین کنین و تمام! :)",
             "ممکنه نیاز پیدا بکنیم به اینکه بتونیم چت‌روم یک کاربر رو از لیست چت‌روم هامون حذف کنیم. نسخه جدید این نیاز رو برآورده کرده!<br>کد زیر رو مطالعه کنید:<br><pre><code class=\"language-python\">from rubika.client import Bot\n bot = Bot(\"DeleteUserChat\", \"AUTH\")\n bot.deleteUserChat(\"UserID\")</code></pre><br>خب اگه به خط سوم توجه کنین می‌بینین که از متد deleteUserChat استفاده کردیم که نیاز به یک پارامتر داره و اون هم شناسهٔ چت کاربری هست که لازمه چت‌رومش برامون پاک بشه. به همین سادگی :)",
-            "حالا اگه بخوایم رمزعبور دومرحله ای اکانتمون رو غیرفعال کنیم کافیه طبق مراحل زیر عمل کنیم.<br>اول به کد زیر توجه کنید:<br><pre><code class=\"language-python\">from rubika.client import Bot\n bot = Bot(\"DisablePassword\", \"AUTH\")\n bot.disablePassword(\"PASSWORD\")</code></pre><br>درنهایت در خط دوم شناسه اکانت رو بجای AUTH و در خط سوم رمزعبورمون رو بجای PASSWORD می‌گذاریم تا رمزعبور غیرفعال بشه."
+            "حالا اگه بخوایم رمزعبور دومرحله ای اکانتمون رو غیرفعال کنیم کافیه طبق مراحل زیر عمل کنیم.<br>اول به کد زیر توجه کنید:<br><pre><code class=\"language-python\">from rubika.client import Bot\n bot = Bot(\"DisablePassword\", \"AUTH\")\n bot.disablePassword(\"PASSWORD\")</code></pre><br>درنهایت در خط دوم شناسه اکانت رو بجای AUTH و در خط سوم رمزعبورمون رو بجای PASSWORD می‌گذاریم تا رمزعبور غیرفعال بشه.",
+            "ویرایش نام و محتویات یک پوشه باید طبق این آموزش عمل کنیم.<br>ابتدا به کد زیر توجه کنید:<br><pre><code class=\"language-python\">from rubika.client import Bot\n bot = Bot(\"EditFolder\", \"AUTH\")\n bot.editFolder(folder_id=\"FOLDER_ID\", name=\"NEW_NAME\")</code></pre><br>همه چیز مشخصه، فقط کافیه folder_id رو وقتی که پوشه رو می‌سازیم داشته باشیم و اون رو بجای FOLDER_ID در کد بالا جایگذاری کنیم و بجای NEW_NAME اسم جدید پوشه رو بگذاریم که البته این مقدار اختیاریه. البته مقادیر اختیاری دیگری هم هستن (include_chat_types, exclude_chat_types, include_object_guids, exclude_object_guids ) که توضیحاتشون در بخش <a href=\"/docs.html?v=6.0.0&doc=addFolder\">addFolder</a> ارائه شد."
         ]
     }
 }
