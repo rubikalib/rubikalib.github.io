@@ -213,7 +213,8 @@
             "getNotificationSetting",
             "getFolders",
             "getOwning",
-            "getGroupOnlineMembersCount"
+            "getGroupOnlineMembersCount",
+            "getMySessions"
         ],
         "titles": [
             "افزودن مخاطب",
@@ -247,7 +248,8 @@
             "دریافت تنظیمات اعلانات",
             "دریافت پوشه‌ها",
             "دریافت مالکیت",
-            "گرفتن تعداد اعضای آنلاین گروه"
+            "گرفتن تعداد اعضای آنلاین گروه",
+            "دریافت نشست‌های فعال"
         ],
         "descriptions": [
             "برای افزودن مخاطب به مخاطبین موجود در حساب روبیکا کافیه طبق این آموزش عمل کنید.<br/>\nخب اول از همه به کد زیر توجه کنید:<br/>\n<pre><code class=\"language_python\">\nfrom rubika import Bot\n\nbot = Bot(\"AddContact\", \"AUTH\")\n\nbot.addContact(\"FirstName\", \"LastName\", \"09123456789\")\n</code></pre>\nدر خط اول کتابخونه روبیکا رو import کردیم داخل پروژمون.<br/>\nدر خط دوم یک instance از کلاس Bot ساختیم و پارامتر اول که نام پروژمون هست رو برابر AddContact قرار دادیم (البته که این نام رو میتونید به مقدار دلخواه خودتون تغییر بدید) و پارامتر دوم که شناسهٔ حساب‌کاربری یا auth هست رو برابر AUTH قرار دادیم (شما باید این مقدار رو با شناسهٔ اکانت خودتون که یک String ۳۲ کاراکتری هست جایگزین کنین).<br/>\nاما خط سوم که قسمت اصلی کد ما هست، شامل دستور افزودن مخاطب هست. در این خط از متغییر bot که همون instance ساخته شده در خط دوم هست ، متد addContact رو فراخوانی کردیم؛ سپس پارامتر های موردنیاز رو بهش میدیم که پارامتر اول این متد first name یا نام مخاطب هست، پارامتر دوم last name یا نام خانوادگی مخاطب هست و پارامتر سوم شماره تلفن مخاطب هستش که باید با ۰ شروع بشه و تعداد ۱۱ کاراکتر داره.<br/> تمامی پارامتر ها به نوع String هستن .",
@@ -281,7 +283,8 @@
             "با این متد میتونید بفهمید کدوم اعلانات رو تنظیم کردید که نمایش داده بشن.<br>به این کد توجه کنید:<br><pre><code class=\"language-python\">from rubika.client import Bot\n bot = Bot(\"GetNotifSetting\", \"AUTH\")\n print(bot.getNotificationSetting())</code></pre><br>و خروجی شامل اینکه کدوم اعلانات نمایش داده میشن چاپ میشه.",
             "این متد میتونه بهتون کمک کنه پوشه هایی که دارید رو همراه با محتویاتشون دریافت کنید.<br>ابتدا به این کد توجه کنید:<br><pre><code class=\"language-python\">from rubika.client import Bot\n bot = Bot(\"GetFolders\", \"AUTH\")\n print(bot.getFolders())</code></pre><br>و خروجی حاوی یک لیست هست که به تعداد پوشه هاتون دیکشنری داره و در هر دیکشنری اطلاعات مربوط به یکی از پوشه‌ها هست.",
             "بااستفاده از این متد میتونید پس از اینکه مالکیت کانال یا گروهی رو منتقل کردید به اکانت ربات که شناسه‌اش رو در ادامه وارد می‌کنید ، با این متد مالکیت اون کانال یا گروه رو دریافت بکنید.<br>کد زیر رو مطالعه کنید:<br><pre><code class=\"language-python\">from rubika.client import Bot\n bot = Bot(\"GetOwning\", \"AUTH\")\n bot.getOwning(\"CHAT_ID\")</code></pre><br>تقریبا تمومه، فقط کافیه در خط سوم شناسهٔ گروه یا کانال موردنظر رو بجای CHAT_ID وارد کنید؛ همین :)",
-            "در همه گروه های روبیکا بالای چت‌روم رو اگر نگاه کنیم تعداد اعضای آنلاین رو هم نوشته، حالا اگه بخوایم اون مقدار رو با ربات به دست بیاریم باید طبق این آموزش عمل کنیم.<br>ابتدا این کد رو ببینید:<br><pre><code class=\"language-python\">from rubika.client import Bot\n bot = Bot(\"getGroupOnlineMembersCount\", \"AUTH\")\n count = bot.getGroupOnlineMembersCount(\"ChatID\")\n print(count)</code></pre><br>در خط سوم ، متغیر count رو برابر با مقدار حاصل از فراخوانی متد getGroupOnlineMembersCount و در خط بعد چاپش کردیم. تنها کاری که درمورد کد بالا لازمه انجام بدیم اینه که علاوه بر جایگذاری AUTH در خط دوم با شناسه اکانت رباتمون، ChatID در خط سوم رو هم برابر با شناسه گروه موردنظرمون قرار بدیم و تمام :)"
+            "در همه گروه های روبیکا بالای چت‌روم رو اگر نگاه کنیم تعداد اعضای آنلاین رو هم نوشته، حالا اگه بخوایم اون مقدار رو با ربات به دست بیاریم باید طبق این آموزش عمل کنیم.<br>ابتدا این کد رو ببینید:<br><pre><code class=\"language-python\">from rubika.client import Bot\n bot = Bot(\"getGroupOnlineMembersCount\", \"AUTH\")\n count = bot.getGroupOnlineMembersCount(\"ChatID\")\n print(count)</code></pre><br>در خط سوم ، متغیر count رو برابر با مقدار حاصل از فراخوانی متد getGroupOnlineMembersCount و در خط بعد چاپش کردیم. تنها کاری که درمورد کد بالا لازمه انجام بدیم اینه که علاوه بر جایگذاری AUTH در خط دوم با شناسه اکانت رباتمون، ChatID در خط سوم رو هم برابر با شناسه گروه موردنظرمون قرار بدیم و تمام :)",
+            "از جمله گزینه های موجود در تنظیمات حریم‌خصوصی اینه که میشه نشست های فعال رو دریافت کرد. با این متد میخوایم این کار رو انجام بدیم.<br>پس به کد زیر دقت کنید:<br><pre><code class=\"language-python\">from rubika import Bot\n bot = Bot(\"getSessions\", \"AUTH\")\n sessions = bot.getMySessions()\n print(sessions)</code></pre><br>حالا کافیه شناسه اکانتتون رو جایگزین AUTH در خط دوم بکنید، بعد کد رو اجرا کنید تا نشست های فعال اکانتتون رو دریافت بکنید."
         ]
     }
 }
