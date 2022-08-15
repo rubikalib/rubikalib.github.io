@@ -127,6 +127,9 @@ pre {
 	animation-name: fadeInUp;
 	animation-duration: 500ms;
 }
+code {
+	font-family: "ubuntu";
+}
 .quiz {
 	border: 0.7px solid #ff2942;
 	font-family: "lvazir";

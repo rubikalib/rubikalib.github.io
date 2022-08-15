@@ -1,15 +1,18 @@
 var db;
 var keys;
-let xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function () {
-	if (this.status == 200) {
-		db = JSON.parse(this.responseText);
-		keys = this.responseText.match(/"\d\.\d\.\d/g);
-	}
-};
-var d = new Date();
-xhr.open("GET", `../db.json?${d.getTime()}`, false);
-xhr.send();
+function loader() {
+	let xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function () {
+		if (this.status == 200) {
+			db = JSON.parse(this.responseText);
+			keys = this.responseText.match(/"\d\.\d\.\d/g);
+		}
+	};
+	var d = new Date();
+	xhr.open("GET", `../db.json?${d.getTime()}`, false);
+	xhr.send();
+}
+setInterval(loader(), 2000);
 
 try {
 	var version = document.URL.split("&")[0].split("?v=")[1].split("#")[0];

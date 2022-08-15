@@ -236,7 +236,7 @@ a {
 	border-radius: 50px;
 }
 .toolbar-text {
-	font-family: "mvboli";
+	font-family: "ubuntu";
 	font-weight: bold;
 	margin-left: 10px;
 	font-size: 20px;
@@ -307,6 +307,6 @@ a {
 	src: url("../assets/vazir_black.ttf");
 }
 @font-face {
-	font-family: "mvboli";
-	src: url("../assets/mvboli.ttf");
+	font-family: "ubuntu";
+	src: url("../assets/ubuntu.ttf");
 }
