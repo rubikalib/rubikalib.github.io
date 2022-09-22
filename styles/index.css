@@ -5,6 +5,10 @@ body {
 	padding: 0;
 	margin: 0;
 }
+#firstView{
+	width: 100vw;
+	height: 100vh;
+}
 .firstViewChild {
 	top: 0;
 	left: 0;

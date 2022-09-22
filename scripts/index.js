@@ -1,5 +1,3 @@
-document.getElementById("firstView").style = `height: ${window.screen.height}px;`;
-
 var Click = 0;
 var menuButton = document.getElementsByClassName("btn-menu")[0];
 var lastSource = "";
