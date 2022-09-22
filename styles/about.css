@@ -1,27 +1,29 @@
 .all {
-	background: #eee;
-	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 0 0 8px #cccccc;
-	border: 0.2px solid #ddd;
-	width: fit-content;
-	height: fit-content;
-	position: absolute;
-	top: 0; bottom: 0; left: 0; right: 0;
-	margin: auto;
-	
+  background: #eee;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px #cccccc;
+  border: 0.2px solid #ddd;
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 .image {
-	margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 .header {
-	font-family: vazir;
-	color: black;
-	font-size: 20px;
+  font-family: vazir;
+  color: black;
+  font-size: 20px;
 }
 .description {
-	margin-top: auto;
-	margin-bottom: auto;
-	font-family: "vazir";
-	color: black;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-family: "vazir";
+  color: black;
 }

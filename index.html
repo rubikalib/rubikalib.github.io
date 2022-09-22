@@ -1,122 +1,165 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta name="viewport" content="width=device-width">
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="styles/index.css" type="text/css" media="all" />
-	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-	<title>rubika library</title>
-</head>
-<body onscroll="scrolled(this);" onload="checkUrl();">
-	<div>
-		<!-- items in this div don't show in menu -->
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="styles/index.css"
+      type="text/css"
+      media="all"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>rubika library</title>
+  </head>
+  <body onscroll="scrolled(this);" onload="checkUrl();">
+    <div>
+      <!-- items in this div don't show in menu -->
 
-		<div id="firstView">
-			<div class="firstViewChild" dir="rtl">
-				<span class="text1">کتابخونهٔ روبیکا</span><br />
-				<span class="text2" onclick="window.scroll(0, window.screen.height);">ربات روبیکای خودت رو داشته باش!</span>
-			</div>
-			<img class="bot" src="https://media-s3-us-east-1.ceros.com/aspencore/images/2019/01/04/eba390aab3b0e636eeb47861adc1d520/robot-waving.gif" alt="bot" />
-		</div>
-		<center class="content" data-aos="fade-up">
-			<div class="part" dir="rtl">
-				<div class="head">
-					<div class="icon">
-						<i class="fa fa-info"></i>
-					</div>
-					<span class="title">کتابخونهٔ روبیکا چیه؟</span>
-					<div class="icon-arrow">
-						<a href="https://github.com/Bahman-Ahmadi/rubika" class="arrow fa fa-arrow-left"></a>
-					</div>
-				</div>
-				<p class="data">
-					این یک کتابخانه غیر رسمی برای ساخت ربات در روبیکاست، با استفاده از این کتابخانه می‌توانید ربات روبیکای خود را بسازید و کنترل کنید.<br />
-					ربات هایی که با این کتابخانه می سازند، روی حساب شما اجرا می‌شوند. بنابراین شما باید کلید API حسابتان را دریافت کنید.
-				</p>
-			</div>
-			<div class="part" dir="rtl">
-				<div class="head">
-					<div class="icon">
-						<i class="fa fa-bolt"></i>
-					</div>
-					<span class="title">شروع سریع!</span>
-					<div class="icon-arrow">
-						<a href="docs.html" class="arrow fa fa-arrow-left"></a>
-					</div>
-				</div>
-				<div class="data">
-					<div class="column">
-						<a href="https://t.me/rubikalib/4" class="col-data">دریافت شناسه اکانت و شناسه چت</a>
-					</div>
-					<div class="column">
-						<a href="docs.html" class="col-data">مستندات</a>
-					</div>
-					<div class="column">
-						<a href="https://t.me/rubikalibGP" class="col-data">ارتباط با پشتیبانی</a>
-					</div>
-					<div class="column">
-						<a href="https://t.me/rubikalib" class="col-data">کانال رسمی</a>
-					</div>
-				</div>
-			</div>
+      <div id="firstView">
+        <div class="firstViewChild" dir="rtl">
+          <span class="text1">کتابخونهٔ روبیکا</span><br />
+          <span class="text2" onclick="window.scroll(0, window.screen.height);"
+            >ربات روبیکای خودت رو داشته باش!</span
+          >
+        </div>
+        <img
+          class="bot"
+          src="https://media-s3-us-east-1.ceros.com/aspencore/images/2019/01/04/eba390aab3b0e636eeb47861adc1d520/robot-waving.gif"
+          alt="bot"
+        />
+      </div>
+      <center class="content" data-aos="fade-up">
+        <div class="part" dir="rtl">
+          <div class="head">
+            <div class="icon">
+              <i class="fa fa-info"></i>
+            </div>
+            <span class="title">کتابخونهٔ روبیکا چیه؟</span>
+            <div class="icon-arrow">
+              <a
+                href="https://github.com/Bahman-Ahmadi/rubika"
+                class="arrow fa fa-arrow-left"
+              ></a>
+            </div>
+          </div>
+          <p class="data">
+            این یک کتابخانه غیر رسمی برای ساخت ربات در روبیکاست، با استفاده از
+            این کتابخانه می‌توانید ربات روبیکای خود را بسازید و کنترل کنید.<br />
+            ربات هایی که با این کتابخانه می سازند، روی حساب شما اجرا می‌شوند.
+            بنابراین شما باید کلید API حسابتان را دریافت کنید.
+          </p>
+        </div>
+        <div class="part" dir="rtl">
+          <div class="head">
+            <div class="icon">
+              <i class="fa fa-bolt"></i>
+            </div>
+            <span class="title">شروع سریع!</span>
+            <div class="icon-arrow">
+              <a href="docs.html" class="arrow fa fa-arrow-left"></a>
+            </div>
+          </div>
+          <div class="data">
+            <div class="column">
+              <a href="https://t.me/rubikalib/4" class="col-data"
+                >دریافت شناسه اکانت و شناسه چت</a
+              >
+            </div>
+            <div class="column">
+              <a href="docs.html" class="col-data">مستندات</a>
+            </div>
+            <div class="column">
+              <a href="https://t.me/rubikalibGP" class="col-data"
+                >ارتباط با پشتیبانی</a
+              >
+            </div>
+            <div class="column">
+              <a href="https://t.me/rubikalib" class="col-data">کانال رسمی</a>
+            </div>
+          </div>
+        </div>
 
-			<div class="part" dir="rtl">
-				<div class="head">
-					<div class="icon">
-						<i class="fa fa-code code"></i>
-					</div>
-					<span class="title">نمونه ها</span>
-					<div class="icon-arrow">
-						<a href="examples.html" class="arrow fa fa-arrow-left"></a>
-					</div>
-				</div>
-				<div class="data">
-					<div class="column">
-						<a href="examples.html#groups" class="col-data">گروه ها</a>
-					</div>
-					<div class="column">
-						<a href="examples.html#channels" class="col-data">کانال ها</a>
-					</div>
-					<div class="column">
-						<a href="examples.html#privates" class="col-data">پیوی ها</a>
-					</div>
-					<div class="column">
-						<a href="examples.html#multiplatforms" class="col-data">چند منظوره</a>
-					</div>
-				</div>
-			</div>
+        <div class="part" dir="rtl">
+          <div class="head">
+            <div class="icon">
+              <i class="fa fa-code code"></i>
+            </div>
+            <span class="title">نمونه ها</span>
+            <div class="icon-arrow">
+              <a href="examples.html" class="arrow fa fa-arrow-left"></a>
+            </div>
+          </div>
+          <div class="data">
+            <div class="column">
+              <a href="examples.html#groups" class="col-data">گروه ها</a>
+            </div>
+            <div class="column">
+              <a href="examples.html#channels" class="col-data">کانال ها</a>
+            </div>
+            <div class="column">
+              <a href="examples.html#privates" class="col-data">پیوی ها</a>
+            </div>
+            <div class="column">
+              <a href="examples.html#multiplatforms" class="col-data"
+                >چند منظوره</a
+              >
+            </div>
+          </div>
+        </div>
+      </center>
 
-		</center>
+      <div class="footer">
+        <div class="social-medias">
+          <a
+            href="https://t.me/rubikalib"
+            class="fa fa-telegram social-media"
+          ></a>
+          <a
+            href="https://github.com/Bahman-Ahmadi/rubika"
+            class="fa fa-github social-media"
+          ></a>
+          <a
+            href="https://pypi.org/project/rubika"
+            class="fa fa-external-link social-media"
+          ></a
+          ><br />
+        </div>
+        all rights reserved ©️
+      </div>
+    </div>
 
-		<div class="footer">
-			<div class="social-medias">
-				<a href="https://t.me/rubikalib" class="fa fa-telegram social-media"></a>
-				<a href="https://github.com/Bahman-Ahmadi/rubika" class="fa fa-github social-media"></a>
-				<a href="https://pypi.org/project/rubika" class="fa fa-external-link social-media"></a><br>
-			</div>
-			all rights reserved ©️
-		</div>
-	</div>
+    <br />
+    <center class="menu">
+      <nav class="menu-bar fixed-bottom">
+        <button class="btn btn-menu btn-lg" onclick="menu();">
+          <i class="fa fa-bars"></i>
+        </button>
+      </nav>
+    </center>
 
-	<br />
-	<center class="menu">
-		<nav class="menu-bar fixed-bottom">
-			<button class="btn btn-menu btn-lg" onclick="menu();"><i class="fa fa-bars"></i></button>
-		</nav>
-	</center>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      src="scripts/index.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
 
-	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="scripts/index.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 
-
-	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-	<script>
-		AOS.init();
-	</script>
-
-	<a id="clickMe" href=""></a>
-
-</body>
+    <a id="clickMe" href=""></a>
+  </body>
 </html>
