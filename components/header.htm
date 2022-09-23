@@ -5,26 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>header</title>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
-      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-      crossorigin="anonymous"
-    />
-
     <style>
       @import "../styles/fonts.css";
+      :root {
+        /*add variables  */
+        --main-color: #1b0773;
+      }
 
-      body {
-        background-color: transparent;
+      body,
+      html {
+        all: unset;
       }
 
       header {
@@ -48,6 +38,56 @@
 
       .offcanvas {
         direction: rtl;
+      }
+
+      #firstView {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+      }
+      .firstViewChild {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      h2 {
+        font-size: 30px;
+        user-select: none;
+      }
+      a.special {
+        color: var(--main-color);
+        font-size: 15px;
+        user-select: none;
+        /* text-decoration: underline 1.8px #574AE2; use this effect instead */
+        text-decoration: underline 1.9px currentColor;
+        background-image: linear-gradient(
+          0deg,
+          #fcbf17,
+          #fcbf17 4px,
+          transparent 0,
+          transparent
+        );
+        cursor: pointer;
+      }
+      a.special:hover {
+        transition: 0.3s ease-in-out;
+        color: var(--main-color);
+        font-weight: 700;
+        background-image: linear-gradient(
+          0deg,
+          #fcbf17,
+          #fcbf17 10px,
+          transparent 0,
+          transparent
+        );
+      }
+      .bot {
+        margin: 10px; /*50px is a lot 😐*/
+        position: absolute;
+        width: 20vw;
+        bottom: 0;
+        right: 0;
       }
     </style>
   </head>
@@ -92,10 +132,26 @@
       </div>
     </header>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
-      crossorigin="anonymous"
-    ></script>
+    <section id="firstView">
+      <div class="firstViewChild" dir="rtl">
+        <h2>کتابخونهٔ روبیکا</h2>
+        <br />
+        <a
+          class="special"
+          href="javascript:void(0)"
+        >
+          ربات روبیکای خودت رو داشته باش!
+        </a>
+      </div>
+      <img
+        class="bot"
+        src="https://media-s3-us-east-1.ceros.com/aspencore/images/2019/01/04/eba390aab3b0e636eeb47861adc1d520/robot-waving.gif"
+        alt="bot"
+      />
+    </section>
+
+    <link rel="stylesheet" href="../libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="../libs/font-awesome.css" />
+    <script src="../libs/bootstrap.min.js"></script>
   </body>
 </html>

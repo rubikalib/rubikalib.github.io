@@ -1,8 +1,4 @@
 @import "./fonts.css";
-:root {
-  /*add variables  */
-  --main-color: #1b0773;
-}
 *,
 *::after,
 *::before {
@@ -18,58 +14,6 @@
 }
 html {
   overflow-y: scroll;
-}
-#firstView {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-}
-.firstViewChild {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  width: fit-content;
-  height: fit-content;
-  position: absolute;
-}
-h2 {
-  font-size: 30px;
-  user-select: none;
-}
-a.special {
-  color: var(--main-color);
-  font-size: 15px;
-  user-select: none;
-  /* text-decoration: underline 1.8px #574AE2; use this effect instead */
-  text-decoration: underline 1.9px currentColor;
-  background-image: linear-gradient(
-    0deg,
-    #fcbf17,
-    #fcbf17 4px,
-    transparent 0,
-    transparent
-  );
-  cursor: pointer;
-}
-a.special:hover {
-  transition: 0.3s ease-in-out;
-  font-weight: 700;
-  background-image: linear-gradient(
-    0deg,
-    #fcbf17,
-    #fcbf17 10px,
-    transparent 0,
-    transparent
-  );
-}
-.bot {
-  margin: 10px; /*50px is a lot 😐*/
-  position: absolute;
-  width: 20vw;
-  bottom: 0;
-  right: 0;
 }
 .part {
   margin: 10px;
@@ -141,7 +85,4 @@ main .row > * > a {
 
 #header {
   height: 100vh;
-  position: absolute;
-  top: 0;
-  z-index: 3;
 }

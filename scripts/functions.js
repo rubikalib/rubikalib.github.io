@@ -32,14 +32,26 @@ function checkUrl(queries = [{}]) {
 
     queries.forEach((query) => {
       if (datas.includes(query.key)) {
-        query.do();
+        query.do("");
+      } else {
+        const result = datas.filter((val) => {
+          if (val.startsWith(query.key + "=")) {
+            return val;
+          }
+        })[0];
+
+        if (result !== undefined) {
+          query.do(result.replace(query.key + "=", ""));
+        }
       }
     });
   }
-  
+
   return {
     then: (run) => {
-      run();
+      setTimeout(() => {
+        run();
+      }, 100);
     },
   };
 }
