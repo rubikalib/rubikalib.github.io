@@ -1,9 +1,36 @@
+@font-face {
+  font-family: "vazir";
+  src: url("../assets/vazir.ttf");
+}
+@font-face {
+  font-family: "vazirb";
+  src: url("../assets/vazir_black.ttf");
+}
+@font-face {
+  font-family: "ubuntu";
+  src: url("../assets/ubuntu.ttf");
+}
+
+:root {
+  /*add variables  */
+  --main-color: #1b0773;
+}
+*,
+*::after,
+*::before {
+  /* reset elements */
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
 * {
   transition: 0.15ms ease-in-out;
+  font-family: ubuntu, vazirb;
 }
-body {
-  padding: 0;
-  margin: 0;
+html {
+  overflow-y: scroll;
 }
 #firstView {
   width: 100vw;
@@ -18,32 +45,44 @@ body {
   width: fit-content;
   height: fit-content;
   position: absolute;
-  font-family: "vazirb";
 }
-.text1 {
+
+h2 {
   font-size: 30px;
   user-select: none;
 }
-.text2 {
+a.special {
+  color: var(--main-color);
   font-size: 15px;
   user-select: none;
-  text-decoration: underline 1.8px #574ae2;
+  /* text-decoration: underline 1.8px #574AE2; use this effect instead */
+  text-decoration: underline 1.9px currentColor;
+  background-image: linear-gradient(
+    0deg,
+    #fcbf17,
+    #fcbf17 4px,
+    transparent 0,
+    transparent
+  );
+  cursor: pointer;
 }
-.text2:hover {
+a.special:hover {
   transition: 0.3s ease-in-out;
-  text-decoration: underline 1.9px #4c3ee0;
-  text-shadow: 0 0 8px #0d0d0d;
+  font-weight: 700;
+  background-image: linear-gradient(
+    0deg,
+    #fcbf17,
+    #fcbf17 10px,
+    transparent 0,
+    transparent
+  );
 }
 .bot {
-  margin: 50px;
+  margin: 10px; /*50px is a lot 😐*/
   position: absolute;
-  width: 100px;
-  height: 130px;
+  width: 20vw;
   bottom: 0;
   right: 0;
-}
-nav {
-  user-select: none;
 }
 .part {
   margin: 10px;
@@ -53,24 +92,16 @@ nav {
   text-align: right;
   font-family: "vazir";
 }
-a {
-  color: #756be5;
-}
-.head {
-  display: flex;
-}
 .icon {
   padding: 20px;
-  border: 1px solid #000;
-  border-radius: 50px;
   width: 10px;
   height: 10px;
-  margin-left: 8px;
+  font-size: 2rem;
+  float: right;
 }
 .title {
   margin-top: auto;
   margin-bottom: auto;
-  font-family: "vazirb";
 }
 .fa-info,
 .fa-bolt,
@@ -82,243 +113,63 @@ a {
 .fa-gift {
   font-size: 25px;
 }
-.icon-arrow {
-  margin-right: auto;
-}
 .fa-arrow-left {
   color: gray !important;
   text-decoration: none;
+  float: left;
+  width: 20px;
 }
-.data {
+main .container  {
   width: 95%;
   margin-top: 30px;
   padding-right: 45px;
-}
-.column {
-  width: 95%;
-  height: 30px;
-  user-select: none;
-  border-radius: 5px;
-  margin-bottom: 3px;
-  border: 1px solid #ccc;
-  text-align: center !important;
-}
-.column:hover {
-  transition: 0.3s ease-in-out;
-  background-color: #eeeeeeee;
-  border: 1.3px solid #bbb;
-  font-weight: bold;
-}
-.card {
-  margin: 10px;
-  padding: 10px;
-  color: #212121;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  padding-left: 20px;
-  margin-bottom: 20px;
-  padding-right: 20px;
-  background-clip: border-box;
-  border: 0.5px dashed #424242;
-  border-radius: 3px 3px 3px 50px;
-  box-shadow: 7px 7px 21px #bebebeee, -7px -7px 21px #ffffffee;
-}
-.card-one {
-  background: #e0e0e0;
-  color: #5e5e5e;
-}
-.card-two {
-  background: #bbb;
-  color: #5e5e5e;
-}
-.card-three {
-  background: #e0e0e0;
-  color: #5e5e5e;
-}
-.buy-one,
-.buy-three {
-  color: #574ae2;
-  border: 1.5px solid #574ae2;
-  background-color: transparent;
-}
-.buy-two {
-  color: white;
-  border: none;
-  background: #574ae2;
-}
-.buy-one:hover,
-.buy-three:hover {
-  color: white;
-  font-size: 14px;
-  background: #574ae2;
-}
-.buy-two:hover {
-  font-size: 14px;
-}
-.options,
-.titre,
-.fa-dollar {
-  color: black;
-}
-.options {
-  text-align: right;
-}
-.titre {
-  font-weight: bold;
-}
-.buy {
-  border-radius: 50px;
-  margin-top: 10px;
-  font-family: "vazir";
-  font-size: 12px;
-  margin-bottom: 5px;
-  padding: 5px;
-}
-.buy:hover {
-  transition: 0.2s ease-in-out;
-  box-shadow: none;
-  font-weight: bold;
-}
+  font-family: vazir;
 
+}
+main .row > * {
+  height: 30px;
+  border-radius: 5px;
+  margin: 5px;
+  margin-bottom: 3px;
+  text-align: center;
+  background-color: var(--bs-success);
+  position: relative;
+}
+main .row > *:hover {
+  background-color: rgba(var(--bs-success-rgb), 0.8);
+}
+main .row > * > a {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  color: var(--bs-light);
+  font-size: 0.8rem;
+  text-decoration: none;
+  font-family: vazir;
+}
+header {
+  height: 5rem;
+}
 .logo {
-  border: 1px solid #000;
-  border-radius: 50px;
-  background-color: #fff;
-  font-size: 20px;
   width: 50px;
   height: 50px;
-  padding: 10px;
-  margin-left: auto;
-  margin-right: auto;
 }
-
-.btn-menu {
-  background: #e0e0e0;
-  box-shadow: 7px 7px 14px #bebebe, -7px -7px 14px #ffffff;
-  border-radius: 50px;
-  border-radius: 50px;
-  color: black;
-  background-size: 150%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 15px;
-  -webkit-animation: fadeInDown 500ms ease-in-out;
-  animation: fadeInDown 500ms ease-in-out;
-}
-.hided {
-  -webkit-animation: fadeInUp 500ms ease-in-out;
-  animation: fadeInUp 500ms ease-in-out;
-}
-.btn-menu:hover {
-  background: #f5f5f5;
-  color: #212121;
-  box-shadow: 0 0 8px #727272;
-}
-.items {
-  background: linear-gradient(toleft, #fff, #ccc);
-  background-size: 400% 400%;
-  animation: gradient 30s ease-in-out infinite;
-  padding: 8px;
-}
-.items-org {
-  margin: auto;
-  position: absolute;
-  width: fit-content;
-  height: fit-content;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  animation: fadeInUp 500ms ease-in-out;
-  -webkit-animation: fadeInUp 500ms ease-in-out;
-}
-.toolbar {
-  background: transparent;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  border: 0.5px dashed #212121;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  padding-left: 10px;
-  display: flex;
-}
-.toolbar-image {
-  width: 53px;
-  height: 75px;
-  border-radius: 50px;
-}
-.toolbar-text {
-  font-family: "ubuntu";
-  font-weight: bold;
-  margin-left: 10px;
-  font-size: 20px;
-  margin-bottom: auto;
-  margin-top: auto;
-}
-.btn-item {
-  border-radius: 3px;
-  margin: 4px;
-  font-size: 10px;
+.offcanvas {
   direction: rtl;
 }
-.footer {
-  color: #cfcfcf;
+footer {
+  position: relative;
+  bottom: 0;
+
+  color: var(--bs-gray-800);
   text-align: center;
-  font-size: 13px;
+  font-size: 1.5rem;
   font-family: "vazir";
 }
-.social-medias {
-  word-spacing: 15px;
-}
 .social-media {
-  color: gray;
-  text-decoration: none;
+  color: var(--bs-gray-700);
 }
 .social-media:hover {
   transition: 0.3s ease-in-out;
-  color: purple;
-  font-size: 15px;
-}
-@keyframes gradient {
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 100%;
-  }
-}
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@font-face {
-  font-family: "vazir";
-  src: url("../assets/vazir.ttf");
-}
-@font-face {
-  font-family: "vazirb";
-  src: url("../assets/vazir_black.ttf");
-}
-@font-face {
-  font-family: "ubuntu";
-  src: url("../assets/ubuntu.ttf");
+  color: var(--bs-gray-900);
 }
