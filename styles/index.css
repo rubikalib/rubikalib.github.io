@@ -1,16 +1,4 @@
-@font-face {
-  font-family: "vazir";
-  src: url("../assets/vazir.ttf");
-}
-@font-face {
-  font-family: "vazirb";
-  src: url("../assets/vazir_black.ttf");
-}
-@font-face {
-  font-family: "ubuntu";
-  src: url("../assets/ubuntu.ttf");
-}
-
+@import "./fonts.css";
 :root {
   /*add variables  */
   --main-color: #1b0773;
@@ -27,7 +15,6 @@
 }
 * {
   transition: 0.15ms ease-in-out;
-  font-family: ubuntu, vazirb;
 }
 html {
   overflow-y: scroll;
@@ -35,6 +22,7 @@ html {
 #firstView {
   width: 100vw;
   height: 100vh;
+  position: relative;
 }
 .firstViewChild {
   top: 0;
@@ -46,7 +34,6 @@ html {
   height: fit-content;
   position: absolute;
 }
-
 h2 {
   font-size: 30px;
   user-select: none;
@@ -119,12 +106,11 @@ a.special:hover {
   float: left;
   width: 20px;
 }
-main .container  {
+main .container {
   width: 95%;
   margin-top: 30px;
   padding-right: 45px;
   font-family: vazir;
-
 }
 main .row > * {
   height: 30px;
@@ -147,29 +133,15 @@ main .row > * > a {
   text-decoration: none;
   font-family: vazir;
 }
-header {
-  height: 5rem;
+#footer,
+#header {
+  width: 99vw;
+  height: 80px;
 }
-.logo {
-  width: 50px;
-  height: 50px;
-}
-.offcanvas {
-  direction: rtl;
-}
-footer {
-  position: relative;
-  bottom: 0;
 
-  color: var(--bs-gray-800);
-  text-align: center;
-  font-size: 1.5rem;
-  font-family: "vazir";
-}
-.social-media {
-  color: var(--bs-gray-700);
-}
-.social-media:hover {
-  transition: 0.3s ease-in-out;
-  color: var(--bs-gray-900);
+#header {
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 3;
 }

@@ -1,0 +1,101 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>header</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      @import "../styles/fonts.css";
+
+      body {
+        background-color: transparent;
+      }
+
+      header {
+        width: 100%;
+      }
+
+      header .container-fluid {
+        height: 4.1rem;
+      }
+
+      .navbar-toggler:focus,
+      .navbar-toggler:focus-visible {
+        border-width: 0 !important;
+      }
+
+      .logo {
+        position: relative;
+        width: 50px;
+        height: 70px;
+      }
+
+      .offcanvas {
+        direction: rtl;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar text-bg-light fixed-top">
+      <div class="container-fluid">
+        <h1 class="navbar-brand fw-bold" href="#">
+          <img class="logo me-1" src="../assets/logo.png" alt="[logo]" />
+          rubika
+        </h1>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvas-navbar"
+          aria-controls="offcanvas-navbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <nav
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvas-navbar"
+          aria-labelledby="title"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="title">کتابخونه ی روبیکا</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul
+              id="menu"
+              class="navbar-nav justify-content-end flex-grow-1 pe-3"
+            ></ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
