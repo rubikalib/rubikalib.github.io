@@ -10,7 +10,7 @@
   overflow: hidden;
 }
 * {
-  transition: 0.15ms ease-in-out;
+  transition: all 0.15ms ease-in-out;
 }
 html {
   overflow-y: scroll;
