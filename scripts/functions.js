@@ -51,7 +51,7 @@ function checkUrl(queries = [{}]) {
     then: (run) => {
       setTimeout(() => {
         run();
-      }, 100);
+      }, 500);
     },
   };
 }
