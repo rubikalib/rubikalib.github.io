@@ -21,30 +21,39 @@ const $ = (
 /**
  *
  * @param {[{key:string,do:function}]} queries
+ * @param {[string , string]} separator
  * @returns {function}
  */
 
-function checkUrl(queries = [{}]) {
-  const url = location.href.split("?")[1];
+function checkUrl(queries = [{}], separator = []) {
+  if (separator[0] == undefined) separator[0] = "?";
+  if (separator[1] == undefined) separator[1] = "&";
+
+  const url = [location.href.split(separator[0])[1]];
 
   if (url) {
-    const datas = url.split("&");
+    let datas = location.href.replace("?" + url, "").split(separator[1]);
+    datas.reverse();
+    datas.pop();
+    datas = datas.concat(url);
 
-    queries.forEach((query) => {
-      if (datas.includes(query.key)) {
-        query.do("");
-      } else {
-        const result = datas.filter((val) => {
-          if (val.startsWith(query.key + "=")) {
-            return val;
+    if (datas[0] !== undefined) {
+      queries.forEach((query) => {
+        if (datas.includes(query.key)) {
+          query.do("");
+        } else {
+          const result = datas.filter((val) => {
+            if (val.startsWith(query.key + "=")) {
+              return val;
+            }
+          })[0];
+
+          if (result !== undefined) {
+            query.do(result.replace(query.key + "=", ""));
           }
-        })[0];
-
-        if (result !== undefined) {
-          query.do(result.replace(query.key + "=", ""));
         }
-      }
-    });
+      });
+    }
   }
 
   return {
