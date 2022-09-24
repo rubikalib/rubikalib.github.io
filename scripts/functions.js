@@ -29,7 +29,10 @@ function checkUrl(queries = [{}], separator = []) {
   if (separator[0] == undefined) separator[0] = "?";
   if (separator[1] == undefined) separator[1] = "&";
 
-  const url = [location.href.split(separator[0])[1].split(separator[1])[0]];
+  let url = location.href.split(separator[0])[1];
+  if(url){
+    url = [url.split(separator[1])[0]]
+  }
 
   if (url) {
     let datas = location.href.replace("?" + url, "").split(separator[1]);
