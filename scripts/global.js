@@ -105,4 +105,8 @@ async function goto(link = "") {
   $("*[src]").forEach((el) => {
     el.src = el.src + "?" + Date.now();
   });
+
+  $("*[href]").forEach((el) => {
+    el.href = el.href + "?" + Date.now();
+  });
 })();
