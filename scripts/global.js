@@ -98,3 +98,9 @@ async function goto(link = "") {
   a.href = "../redirect.htm?redirect=" + link;
   a.click();
 }
+
+(async function noCache() {
+  $("*[src]").forEach((el) => {
+    el.src = el.src + "?" + Date.now();
+  });
+})();
