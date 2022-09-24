@@ -77,7 +77,7 @@ checkUrl([
     };
   });
 
-  doc.querySelector("a.special").onclick = () => {
+  header.querySelector("a.special").onclick = () => {
     window.scroll(0, innerHeight);
   };
 });
