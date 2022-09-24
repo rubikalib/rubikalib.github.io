@@ -75,7 +75,7 @@ checkUrl([
     };
 
     header.querySelector("a.navbar-brand").onclick = function () {
-      this.target.href = goto("index.html")
+      goto("index.html")
     };
   };
 
