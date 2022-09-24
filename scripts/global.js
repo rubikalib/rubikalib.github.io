@@ -16,7 +16,7 @@ const events = [
   "https://t.me/rubikalib",
   "https://t.me/rubikalibGP",
   "https://t.me/Bprogrammer",
-  `${location.href}?darkmode`,
+  `${location.href}?theme=darkmode`,
   "examples.html",
   "showLicense",
   "about.html",
@@ -41,44 +41,46 @@ checkUrl([
       '<link rel="stylesheet" href="styles/dark/index.css"/>';
     document.body.innerHTML +=
       '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/themes@5.0.2/wordpress-admin/wordpress-admin.css" />';
-    texts[4] = "<i class='fa fa-sun-o'></i> حالت روز";
-    events[4] = events[4].replace("darkmode", "lightmode");
+    texts[5] = "<i class='fa fa-sun-o'></i> حالت روز";
+    events[5] = events[5].replace(/darkmode/g, "lightmode");
   }
 
-  const header = $("#header").contentDocument,
-    menu = header.querySelector("#menu"),
-    footer = $("#footer").contentDocument;
+  $("#header").onload = () => {
+    const header = $("#header").contentDocument,
+      footer = $("#footer").contentDocument,
+      menu = header.querySelector("#menu");
 
-  for (var i = 0; i <= texts.length - 1; i++) {
-    const li = document.createElement("li");
-    li.classList.add("nav-item");
-    li.innerHTML = `
+    for (var i = 0; i <= texts.length - 1; i++) {
+      const li = document.createElement("li");
+      li.classList.add("nav-item");
+      li.innerHTML = `
       <a href="javascript:void(0)" event="${events[i]}" class="nav-link fw-bold">${texts[i]}</a>
     `;
 
-    menu.appendChild(li);
-  }
+      menu.appendChild(li);
+    }
 
-  header.querySelectorAll(".nav-link").forEach((element) => {
-    element.onclick = () => {
-      const attr = element.getAttribute("event");
-      if (attr === "showLicense") {
-        showLicense();
-      } else {
+    header.querySelectorAll(".nav-link").forEach((element) => {
+      element.onclick = () => {
+        const attr = element.getAttribute("event");
+        if (attr === "showLicense") {
+          showLicense();
+        } else {
+          goto(attr);
+        }
+      };
+    });
+
+    footer.querySelectorAll(".nav-link").forEach((element) => {
+      element.onclick = () => {
+        const attr = element.getAttribute("event");
         goto(attr);
-      }
-    };
-  });
+      };
+    });
 
-  footer.querySelectorAll(".nav-link").forEach((element) => {
-    element.onclick = () => {
-      const attr = element.getAttribute("event");
-      goto(attr);
+    header.querySelector("a.special").onclick = () => {
+      window.scrollTo(0, innerHeight);
     };
-  });
-
-  header.querySelector("a.special").onclick = () => {
-    window.scroll(0, innerHeight);
   };
 });
 
