@@ -58,7 +58,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        
+
         width: 90%;
         text-align: center;
       }
@@ -104,14 +104,19 @@
         bottom: 0;
         right: 0;
       }
+      .navbar-brand{
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
     <header class="navbar text-bg-light rounded-4 shadow">
       <div class="container-fluid">
-        <h1 class="navbar-brand fw-bold" href="#">
-          <img class="logo me-1" src="../assets/logo.png" alt="[logo]" />
-          rubika
+        <h1 class="fw-bold" href="#">
+          <a class="navbar-brand">
+            <img class="logo me-1" src="../assets/logo.png" alt="[logo]" />
+            rubika
+          </a>
         </h1>
         <button
           class="navbar-toggler border-0"

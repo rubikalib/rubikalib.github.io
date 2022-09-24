@@ -73,6 +73,10 @@ checkUrl([
     header.querySelector("a.special").onclick = () => {
       window.scrollTo(0, innerHeight);
     };
+
+    header.querySelector("a.navbar-brand").onclick = function () {
+      this.target.href = goto("index.html")
+    };
   };
 
   $("#footer").onload = () => {
