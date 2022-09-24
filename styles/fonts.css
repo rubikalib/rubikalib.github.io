@@ -10,6 +10,10 @@
   font-family: "ubuntu";
   src: url("../assets/ubuntu.ttf");
 }
+@font-face {
+  font-family: "lvazir";
+  src: url("../assets/vazir.ttf");
+}
 
 * {
   font-family: ubuntu, vazirb;
