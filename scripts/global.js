@@ -47,7 +47,6 @@ checkUrl([
 
   $("#header").onload = () => {
     const header = $("#header").contentDocument,
-      footer = $("#footer").contentDocument,
       menu = header.querySelector("#menu");
 
     for (var i = 0; i <= texts.length - 1; i++) {
@@ -71,16 +70,19 @@ checkUrl([
       };
     });
 
+    header.querySelector("a.special").onclick = () => {
+      window.scrollTo(0, innerHeight);
+    };
+  };
+
+  $("#footer").onload = () => {
+    const footer = $("#footer").contentDocument;
     footer.querySelectorAll(".nav-link").forEach((element) => {
       element.onclick = () => {
         const attr = element.getAttribute("event");
         goto(attr);
       };
     });
-
-    header.querySelector("a.special").onclick = () => {
-      window.scrollTo(0, innerHeight);
-    };
   };
 });
 
