@@ -1,30 +1,41 @@
-ol.gradient-list > li::before,
-ol.gradient-list > li {
-  box-shadow: 0.25rem 0.25rem 0.6rem rgba(0, 0, 0, 0.05),
-    0 0.5rem 1.125rem rgba(75, 0, 0, 0.05);
-}
+@import "./fonts.css";
 
 *,
-*:before,
-*:after {
+*::after,
+*::before {
+  /* reset elements */
+
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
+  transition: all 0.5s linear;
+}
+
+* {
+  direction: rtl;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+#footer,
+#header {
+  width: 99vw;
+  height: 80px;
+}
+
+#header {
+  height: 100vh;
 }
 
 body {
   background-color: #fafafa;
   color: #1d1f20;
 }
-.content {
-  margin-top: 64px;
-}
-main {
-  display: block;
-  margin: 0 auto;
-  margin-top: 80px;
-  max-width: 40rem;
-  padding: 1rem;
-}
-a {
+a:link,
+a:visited {
   color: #212121;
   text-decoration: underline;
 }
@@ -36,23 +47,21 @@ ol.gradient-list {
 }
 ol.gradient-list > li {
   background: white;
-  border-radius: 0.5rem 0.5rem 0 0;
   counter-increment: gradient-counter;
-  margin-top: 1rem;
-  min-height: 3rem;
-  padding: 2rem 1rem 1rem 2rem;
+  min-height: 4rem;
+  padding: 2rem 1rem;
   position: relative;
 }
-ol.gradient-list > li::before,
-ol.gradient-list > li::after {
-  border-radius: 5rem 5rem 5rem 5rem;
+ol.gradient-list > li::before {
   content: "";
-  height: 3rem;
-  left: -1rem;
-  overflow: hidden;
+  border-radius: 100%;
+  height: 4.5rem;
+  width: 4.5rem;
+
+  left: -2rem;
+
   position: absolute;
-  top: -1rem;
-  width: 3rem;
+  top: -2.25rem;
 }
 ol.gradient-list > li::before {
   content: counter(gradient-counter);
@@ -62,7 +71,6 @@ ol.gradient-list > li::before {
   margin-left: 50%;
   justify-content: center;
   align-items: center;
-  padding: 0.125em 0.25em;
   z-index: 1;
 }
 ol.gradient-list > li:nth-child(n):before {
@@ -70,108 +78,199 @@ ol.gradient-list > li:nth-child(n):before {
   color: white;
 }
 ol.gradient-list > li + li {
-  margin-top: 2rem;
-}
-.list-item-title,
-.list-item-description {
-  font-family: "lvazir";
-}
-.list-item-description {
-  font-family: "lvazir";
-  font-size: 12.5px;
-}
-.titr {
-  font-family: "lvazir";
-}
-.data {
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  font-family: "lvazir";
-  background: white;
-  color: #212121;
-  text-align: center;
-  padding: 8px;
-  border-radius: 0.5rem;
-  margin-bottom: 10px;
-}
-.release-time {
-  text-align: left !important;
-  border: 0.7px solid gold;
-  border-radius: 50px;
-  width: fit-content;
-  margin-right: auto;
-  padding: 4px;
-  color: gold;
-}
-
-.back,
-.next {
-  border: 0.7px solid gold;
-  font-family: "lvazir";
-  font-weight: bold;
-  margin-top: 10px;
-  padding: 5px;
-}
-.back:hover {
-  background: gold;
-  color: black;
-}
-.back {
-  color: gold;
-  background: transparent;
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
-}
-.next {
-  color: black;
-  background: gold;
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
+  margin-top: 4rem;
 }
 pre {
   text-align: left !important;
-  border-radius: 3px;
-  box-shadow: 0.25rem 0.25rem 0.6rem rgba(0, 0, 0, 0.05),
-    0 0.5rem 1.125rem rgba(75, 0, 0, 0.05);
-  animation-name: fadeInUp;
-  animation-duration: 500ms;
+  border-radius: 10px;
+
+  box-shadow: 0px 8px 10px rgb(0 0 0 / 20%);
+
+  margin: 1rem 0;
+  padding: 10px;
+
+  position: relative;
 }
 code {
   font-family: "ubuntu";
+  border-radius: 5px;
 }
 .quiz {
-  border: 0.7px solid #ff2942;
-  font-family: "lvazir";
-  border-radius: 100px;
-  width: fit-content;
-  font-weight: bold;
-  margin-left: 5px;
-  display: inline;
-  color: #ff2942;
-  padding: 5px;
+  width: 25px;
+  height: 25px;
+  background-color: var(--bs-danger);
+  border-radius: 100%;
+  position: relative;
+  float: right;
+  margin-left: 10px;
 }
-.answer {
-  border: 0.7px solid #7fff29;
-  font-family: "lvazir";
-  border-radius: 100px;
-  width: fit-content;
-  font-weight: bold;
-  margin-left: 5px;
-  display: inline;
-  color: #7fff29;
-  padding: 5px;
+.quiz::after {
+  content: "?";
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(100px);
+.answer {
+  width: 25px;
+  height: 25px;
+  background-color: var(--bs-success);
+  border-radius: 100%;
+  position: relative;
+  float: right;
+  margin-left: 10px;
+}
+.answer::after {
+  content: "*";
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -40%);
+}
+
+/* --------------------------------------------- */
+
+.card:not(.gradient-list-item) > a {
+  text-decoration: none;
+}
+
+.card-title > a:hover {
+  color: #601ae2;
+}
+
+.card-body > .card-text {
+  direction: rtl;
+  font-family: vazir;
+  font-weight: bold;
+}
+
+main {
+  padding-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+main,
+section,
+.document {
+  position: relative;
+}
+
+main,
+main * {
+  overflow: visible !important;
+}
+
+.card,
+.card::before {
+  border: none !important;
+  box-shadow: 0px 8px 20px 4px rgb(0 0 0 / 20%);
+}
+
+.gradient-list-item .card-text * {
+  font-family: vazir;
+  font-weight: bold;
+}
+
+.gradient-list-item .card-body pre {
+  display: none;
+}
+
+.document {
+  box-shadow: 0px 8px 20px 4px rgb(0 0 0 / 20%);
+  border-radius: 10px;
+}
+
+article:not(pre, pre *) {
+  min-height: 100vh;
+  font-family: lvazir;
+  font-weight: bold;
+  padding: 1rem 0;
+  padding-bottom: 3rem;
+}
+
+.arrow {
+  width: 50px;
+  height: 50px;
+  background-color: #ffffff98;
+}
+
+@media only screen and (min-width: 788px) {
+  .arrow {
+    box-shadow: 0px 1px 13px 7px rgb(0 0 0 / 20%);
+
+    position: absolute;
+    bottom: 5%;
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+
+  .fa-arrow-right {
+    right: 0;
+    transform: translateX(50%);
+  }
+
+  .fa-arrow-left {
+    left: 0;
+    transform: translateX(-50%);
   }
 }
-@font-face {
-  font-family: "lvazir";
-  src: url("../assets/vazir.ttf");
+
+@media only screen and (min-width: 0) and (max-width: 787px) {
+  .arrow {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .fa-arrow-right {
+    right: 0;
+  }
+
+  .fa-arrow-left {
+    left: 0;
+  }
+}
+
+.arrow::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  color: var(--bs-gray-700);
+}
+
+.arrow:hover::before,
+.utils > *:hover {
+  color: var(--bs-gray-900);
+}
+
+#error {
+  width: 100vw;
+  height: 100vh;
+}
+
+.copy {
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  opacity: 0;
+}
+
+pre:hover .copy {
+  opacity: 1;
+}
+
+.utils {
+  position: relative;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.utils > *,
+.utils > *:visited {
+  color: var(--bs-gray-700);
 }

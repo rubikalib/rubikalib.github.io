@@ -1,115 +1,271 @@
-var db;
-var keys;
-function loader() {
-  let xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function () {
-    if (this.status == 200) {
-      db = JSON.parse(this.responseText);
-      keys = this.responseText.match(/"\d\.\d\.\d/g);
-    }
-  };
-  var d = new Date();
-  xhr.open("GET", `../db.json?${d.getTime()}`, false);
-  xhr.send();
-}
-setInterval(loader(), 2000);
+fetch(`db.json?${Date.now() + Math.random()}`)
+  .then((data) => data.json())
+  .then((result) => {
+    const db = result,
+      keys = Object.keys(result);
 
-try {
-  var version = document.URL.split("&")[0].split("?v=")[1].split("#")[0];
-  var descriptions = db[version].descriptions;
-  var links = db[version].links;
-  var titles = db[version].titles;
-  document.getElementsByClassName("toolbar-text")[0].innerHTML += " " + version;
-} catch (e) {
-  if (window.localStorage.getItem("theme") === "dark") {
-    document.getElementsByTagName("head")[0].innerHTML +=
-      '<link rel="stylesheet" href="styles/dark/index.css"/>';
-    document.getElementsByTagName("head")[0].innerHTML +=
-      '<link rel="stylesheet" href="styles/dark/docs.css"/>';
-    document.getElementsByTagName("nav")[0].className =
-      "nav bg-dark toolbar fixed-top";
-  } else if (window.localStorage.getItem("theme") === "light") {
-    document.getElementsByTagName("head")[0].innerHTML +=
-      '<link rel="stylesheet" href="styles/index.css"/>';
-    document.getElementsByTagName("head")[0].innerHTML +=
-      '<link rel="stylesheet" href="styles/docs.css"/>';
-  }
+    let version = undefined;
 
-  for (var key of keys) {
-    var v = key.replace(/\"/g, "");
-    document.getElementsByClassName(
-      "content"
-    )[0].innerHTML += `<div class="data" dir="rtl"><a href="?v=${v}"><b class="titr">مستندات نسخهٔ : ${v}</b></a><br><div style="text-align: right!important;">${db[v].details.commit}</div><div class="release-time"><i class="fa fa-clock"></i> ${db[v].details.date}</div>`;
-  }
-}
+    checkUrl([
+      {
+        key: "v",
+        do: (v) => {
+          version = v;
+        },
+      },
+    ]).then(() => {
+      let descriptions = undefined,
+        links = undefined,
+        titles = undefined;
 
-// function for add elements
-(function () {
-  for (var i = 0; i < titles.length; i++) {
-    let splitedDesc = descriptions[i].split(" ");
-    let preview = "";
-    for (var j = 0; j <= 20; j++) {
-      preview += splitedDesc[j] + " ";
-    }
-    preview += "...";
-    document.getElementsByClassName(
-      "gradient-list"
-    )[0].innerHTML += `<li id="${links[i]}"><span class="text" dir="rtl"><a href="?v=${version}&doc=${links[i]}" onclick="checkUrl();"><b class="list-item-title">${titles[i]}</b></a><br /><span class="list-item-description">${preview}</span></span></li>`;
-  }
-})();
+      $("#header").onload = () => {
+        const header = $("#header").contentDocument,
+          brand = header.querySelector(".navbar-brand"),
+          h2 = header.querySelector(".firstViewChild > h2"),
+          special = header.querySelector(".firstViewChild > .special");
 
-// function for checking urls and returns correct result
-var sourceCode = document.getElementsByClassName("content")[0].innerHTML;
-function checkUrl() {
-  var index = links.indexOf(document.URL.split("&doc=")[1]);
-  var titr = titles[index];
-  var data = descriptions[index];
+        try {
+          descriptions = db[version].descriptions;
+          links = db[version].links;
+          titles = db[version].titles;
+        } catch (e) {
+          keys.reverse();
+          for (const i in keys) {
+            const v = keys[i];
 
-  if (data !== undefined) {
-    document.getElementsByClassName(
-      "content"
-    )[0].innerHTML = `<div class="data"><b class="titr">${titr}</b><br><br><div dir='rtl' style='text-align: right;'>${data}</div>${
-      index != 0
-        ? `<button class="back" onclick="loadDocByIndex('${version}',${
-            index - 1
-          });">${titles[index - 1]}</button>`
-        : ""
-    }${
-      index != links.length - 1
-        ? `<button class="next" onclick="loadDocByIndex('${version}',${
-            index + 1
-          });">${titles[index + 1]}</button>`
-        : ""
-    }</div>`;
-    document.getElementsByClassName("content")[0].style =
-      "padding-top: 24px; padding-left: 8px; padding-right: 8px;";
+            $("main").innerHTML += `
+              <div class="col-12 mb-5" data-aos="fade-up" data-aos-anchor-placement="top-center">
+                <div class="card">   
+                  <a href="?v=${v}?${Date.now()}">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">
+                        مستندات نسخهٔ : ${v}
 
-    document.querySelectorAll("pre code").forEach((el) => {
-      hljs.highlightElement(el);
+                        ${
+                          i == 0
+                            ? `<span style="font-size:1rem" class="badge text-bg-primary fw-normal rounded-pill"> new </span>`
+                            : ""
+                        }
+                      </h5>
+
+                      <p class="card-text">
+                        ${db[v].details.commit}
+                      </p>
+                      <span class="text-primary float-start mb-2">
+                        <i class="fa fa-clock-o"></i> ${db[v].details.date}
+                      </span>
+                    </div>
+                  </a>
+                </div> 
+              </div>
+            `;
+          }
+
+          h2.innerHTML = "مستندات کتابخونهٔ روبیکا";
+          special.innerHTML = "انتخاب نسخه 🕵️‍♂️";
+
+          return e;
+        }
+
+        checkUrl([
+          {
+            key: "doc",
+            do: (data) => {
+              // function for checking urls and returns correct result
+
+              let index;
+              links.forEach((val, i) => {
+                if (val === data) {
+                  index = i;
+                  return void 0;
+                }
+              });
+
+              const title = titles[index],
+                desc = descriptions[index];
+
+              if (desc !== undefined) {
+                const main = $("main");
+
+                brand.innerHTML += " " + version;
+                h2.innerHTML = `آموزش ${title} در کتابخونهٔ روبیکا ورژن ${version}`;
+                special.innerHTML = `بریم ببینیم 😵`;
+                $("title").innerHTML = title;
+                brand.onclick = () => {
+                  location.assign(
+                    location.origin + location.pathname + `?v=${version}`
+                  );
+                };
+        
+
+                main.classList.remove("container-md");
+                main.style.backgroundColor = "white";
+
+                main.innerHTML = `
+                <div class="container-md document">
+                  <h3 class="text-center text-secondary p-2">${title}</h3>
+                  <div class="utils nav nav-pills nav-fill w-25">
+                    <button title="کپی ادرس پست" class="fa fa-link nav-link"></button>
+                    <button title="اشتراک گذاری" class="fa fa-share nav-link"></button>
+                  </div>
+                  <hr class="border-secondary">
+                  <article>
+                    ${desc}
+                  </article>
+                    ${
+                      index != 0
+                        ? `<a onclick="loadDoc('${version}',${`'${
+                            links[index - 1]
+                          }'`});" href="javascript:void(0)" title="${
+                            titles[index - 1]
+                          }" class="arrow fa fa-arrow-left fs-3 rounded-pill"></a>`
+                        : ""
+                    }
+
+                    ${
+                      index != links.length - 1
+                        ? `<a onclick="loadDoc('${version}',${`'${
+                            links[index + 1]
+                          }'`});" href="javascript:void(0)" title="${
+                            titles[index + 1]
+                          }" class="arrow fa fa-arrow-right fs-3 rounded-pill"></a>`
+                        : ""
+                    }
+                  </div>
+              `;
+
+                main.querySelectorAll("pre").forEach(function (el) {
+                  el.setAttribute("data-aos", "fade-up");
+
+                  const copy = document.createElement("button");
+                  copy.classList.add("copy", "fa", "fa-copy");
+                  copy.title = "کپی کردن کد";
+
+                  el.appendChild(copy);
+
+                  copy.addEventListener("click", () => {
+                    navigator.clipboard.writeText(
+                      el.querySelector("code").textContent
+                    );
+
+                    sendMessage("کد با موفقیت کپی شد");
+                  });
+
+                  main.querySelectorAll("pre code").forEach((code) => {
+                    hljs.highlightElement(code);
+                  });
+                });
+
+                $(".fa-link").onclick = () => {
+                  navigator.clipboard.writeText(location.href);
+                  sendMessage("ادرس کپی شد");
+                };
+
+                $(".fa-share").onclick = () => {
+                  if (navigator.share) {
+                    navigator
+                      .share({
+                        title: "This is header/title",
+                        text:
+                          desc
+                            .replace(/<br\/>|\\n|href|<br>/gm, " ")
+                            .slice(0, 50)
+                            .trim() + "...",
+                        url: location.href,
+                      })
+                      .catch(() => sendMessage("خطا هنگام بارگذاری اطلاعات" , "error"));
+                  } else {
+                    sendMessage("قابلیت اشتراک گذاری در مرورگر شما فعال نمی باشد لطفا از مرورگر دیگری استفاده کنید" , "error");
+                  }
+                };
+              } else {
+                document.body.removeChild($("main"));
+                document.body.removeChild($("#header"));
+
+                const error = document.createElement("iframe");
+                error.id = "error";
+                error.frameBorder = "0";
+                error.src = "./components/404.html";
+
+                document.body.insertBefore(error, $("#footer"));
+
+                error.onload = () => {
+                  Swal.fire({
+                    title: "صفحه ی مورد نظر یافت نشد",
+                    text: `ایا مایلید به صفحه ی اموزشات ورژن ${version} بروید`,
+                    icon: "error",
+                    showDenyButton: true,
+                    showCloseButton: true,
+                    confirmButtonText: "ورود",
+                    denyButtonText: "خیر",
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      location.assign(
+                        location.origin +
+                          location.pathname +
+                          `?v=${version}&${Date.now() + Math.random()}`
+                      );
+                    } else if (result.isDenied) {
+                      sendMessage("عملیات با موفقیت لغو شد", warning);
+                    }
+                  });
+                };
+              }
+            },
+          },
+        ]).then(() => {
+          if ($("main > section")) {
+            brand.innerHTML += " " + version;
+            header.querySelector(
+              ".firstViewChild > h2"
+            ).innerHTML += ` ورژن ${version}`;
+            header.querySelector(
+              ".firstViewChild > .special"
+            ).innerHTML = `در ورژن ${version} کتابخونهٔ روبیکا چه میگذرد`;
+            $("title").innerHTML += `${version}`;
+            brand.onclick = () => {
+              location.assign(
+                location.origin + location.pathname
+              );
+            };
+    
+
+            // function for add elements
+            $("section").hidden = false;
+
+            for (let i = 0; i < titles.length; i++) {
+              const preview =
+                descriptions[i]
+                  .replace(/<br\/>|\\n|href|<br>/gm, " ")
+                  .slice(0, 110)
+                  .trim() + "...";
+
+              $(".gradient-list").innerHTML += `
+              <li data-aos="zoom-out" class="card gradient-list-item rounded" id="${
+                links[i]
+              }">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">
+                      <a href="?v=${version}&doc=${links[i]}&${
+                Date.now() + Math.random()
+              }">
+                        ${titles[i]}
+                      </a>
+                    </h5>
+                    <p class="card-text text-right">
+                      ${preview}
+                    </p>
+                  </div>
+              </li>`;
+            }
+          }
+        });
+      };
     });
-  } else {
-    document.getElementsByClassName("content")[0].innerHTML = sourceCode;
-    document.getElementsByClassName("content")[0].style = "padding-top: 0px;";
-  }
+  });
 
-  if (window.localStorage.getItem("theme") === "dark") {
-    document.getElementsByTagName("head")[0].innerHTML +=
-      '<link rel="stylesheet" href="styles/dark/index.css"/>';
-    document.getElementsByTagName("head")[0].innerHTML +=
-      '<link rel="stylesheet" href="styles/dark/docs.css"/>';
-    document.getElementsByTagName("head")[0].innerHTML +=
-      '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/vs2015.min.css"/>';
-    document.getElementsByTagName("nav")[0].className =
-      "nav bg-dark toolbar fixed-top";
-  } else if (window.localStorage.getItem("theme") === "light") {
-    document.getElementsByTagName("head")[0].innerHTML +=
-      '<link rel="stylesheet" href="styles/index.css"/>';
-    document.getElementsByTagName("head")[0].innerHTML +=
-      '<link rel="stylesheet" href="styles/docs.css"/>';
-  }
-}
-
-function loadDocByIndex(version, index) {
-  document.body.innerHTML += `<a href="?v=${version}&doc=${links[index]}" id="clickme"></a>`;
-  document.getElementById("clickme").click();
+function loadDoc(version, doc) {
+  window.location.assign(
+    `?v=${version}&doc=${doc}&${Date.now() + Math.random()}`
+  );
 }
