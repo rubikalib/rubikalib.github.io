@@ -20,39 +20,50 @@ checkUrl([
       '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/themes@5.0.2/wordpress-admin/wordpress-admin.css" />';
   }
 
+  const loaded = {
+    footer: false,
+    header: false,
+  };
+
   $("#header").addEventListener("load", function () {
-      const header = $("#header").contentDocument;
+    const header = $("#header").contentDocument;
 
-      header.querySelectorAll(".nav-link").forEach((element, i) => {
-        if (i == 5 && dark) {
-          element.innerHTML = element.innerHTML
-            .replace("moon", "sun")
-            .replace("شب", "روز");
+    header.querySelectorAll(".nav-link").forEach((element, i) => {
+      if (i == 5 && dark) {
+        element.innerHTML = element.innerHTML
+          .replace("moon", "sun")
+          .replace("شب", "روز");
 
-          element.setAttribute(
-            "event",
-            element.getAttribute("event").replace(/darkmode/g, "lightmode")
-          );
+        element.setAttribute(
+          "event",
+          element.getAttribute("event").replace(/darkmode/g, "lightmode")
+        );
+      }
+
+      element.onclick = () => {
+        const attr = element.getAttribute("event");
+        if (attr === "showLicense") {
+          showLicense();
+        } else {
+          goto(attr);
         }
-
-        element.onclick = () => {
-          const attr = element.getAttribute("event");
-          if (attr === "showLicense") {
-            showLicense();
-          } else {
-            goto(attr);
-          }
-        };
-      });
-
-      header.querySelector("a.special").onclick = () => {
-        window.scrollTo(0, innerHeight);
       };
+    });
 
-      header.querySelector("a.navbar-brand").onclick = () => {
-        if (location.href == location.origin + location.pathname)
-          goto("index.html");
-      };
+    header.querySelector("a.special").onclick = () => {
+      window.scrollTo(0, innerHeight);
+    };
+
+    header.querySelector("a.navbar-brand").onclick = () => {
+      if (location.href == location.origin + location.pathname)
+        goto("index.html");
+    };
+
+    loaded.header = true;
+
+    setTimeout(() => {
+      onDatasLoaded(loaded.header, loaded.footer);
+    }, 1500);
   });
 
   $("#footer").onload = () => {
@@ -63,6 +74,12 @@ checkUrl([
         goto(attr);
       };
     });
+
+    loaded.footer = true;
+
+    setTimeout(() => {
+      onDatasLoaded(loaded.header, loaded.footer);
+    }, 1500);
   };
 });
 
@@ -90,3 +107,19 @@ async function goto(link = "") {
   //   el.href = el.href + "?" + Date.now();
   // });
 })();
+
+function onDatasLoaded(header, footer) {
+  if (header && footer) {
+    const menu =
+        ($("main section ol").innerHTML == undefined ||
+          $("main section ol").innerHTML == "") &&
+        $("#error") == undefined,
+      doc = $(".document") == undefined && $("#error") == undefined,
+      versions = $("main .col-12") === undefined
+
+    if (menu && doc && versions) {
+      console.log("redirect");
+      location.reload();
+    }
+  }
+}
