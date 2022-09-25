@@ -104,7 +104,7 @@
         bottom: 0;
         right: 0;
       }
-      .navbar-brand{
+      .navbar-brand {
         cursor: pointer;
       }
     </style>
@@ -112,7 +112,7 @@
   <body>
     <header class="navbar text-bg-light rounded-4 shadow">
       <div class="container-fluid">
-        <h1 class="fw-bold" href="#">
+        <h1 class="fw-bold">
           <a class="navbar-brand">
             <img class="logo me-1" src="../assets/logo.png" alt="[logo]" />
             rubika
@@ -170,5 +170,41 @@
     <link rel="stylesheet" href="../libs/bootstrap.min.css" />
     <link rel="stylesheet" href="../libs/font-awesome.css" />
     <script src="../libs/bootstrap.min.js"></script>
+    <script src="../scripts/functions.js"></script>
+    <script>
+      const texts = [
+        "<i class='fa fa-home ms-1'></i> خانه",
+        "<i class='fa fa-book ms-1'></i> مستندات",
+        "<i class='fa fa-bullhorn ms-1'></i> اخبار",
+        "<i class='fa fa-comments ms-1'></i> گفتگو",
+        "<i class='fa fa-user-circle-o ms-1'></i> پشتیبانی",
+        "<i class='fa fa-moon-o ms-1'></i> حالت شب",
+        "<i class='fa fa-code ms-1'></i> نمونه‌ها",
+        "<i class='fa fa-file ms-1'></i> مجوز",
+        "<i class='fa fa-users ms-1'></i> درباره‌ما",
+      ];
+
+      const events = [
+        "index.html",
+        "docs.html",
+        "https://t.me/rubikalib",
+        "https://t.me/rubikalibGP",
+        "https://t.me/Bprogrammer",
+        `${location.href}?theme=darkmode`,
+        "examples.html",
+        "showLicense",
+        "about.html",
+      ];
+
+      for (let i = 0; i <= texts.length - 1; i++) {
+        const li = document.createElement("li");
+        li.classList.add("nav-item");
+        li.innerHTML = `
+          <a href="javascript:void(0)" event="${events[i]}" class="nav-link fw-bold">${texts[i]}</a>
+        `;
+
+        menu.appendChild(li);
+      }
+    </script>
   </body>
 </html>
