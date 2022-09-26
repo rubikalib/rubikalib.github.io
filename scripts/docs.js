@@ -207,7 +207,7 @@ fetch(`db.json?${Date.now() + Math.random()}`)
                           `?v=${version}&${Date.now() + Math.random()}`
                       );
                     } else if (result.isDenied) {
-                      sendMessage("عملیات با موفقیت لغو شد", warning);
+                      sendMessage("عملیات با موفقیت لغو شد", "warning");
                     }
                   });
                 };
