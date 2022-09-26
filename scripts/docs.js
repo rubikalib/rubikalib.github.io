@@ -96,7 +96,6 @@ fetch(`db.json?${Date.now() + Math.random()}`)
                     location.origin + location.pathname + `?v=${version}`
                   );
                 };
-        
 
                 main.classList.remove("container-md");
                 main.style.backgroundColor = "white";
@@ -167,15 +166,17 @@ fetch(`db.json?${Date.now() + Math.random()}`)
                       .share({
                         title: "This is header/title",
                         text:
-                          desc
-                            .replace(/<br\/>|\\n|href|<br>/gm, " ")
-                            .slice(0, 50)
-                            .trim() + "...",
+                          getTextWithoutHtml(desc).slice(0, 50).trim() + "...",
                         url: location.href,
                       })
-                      .catch(() => sendMessage("خطا هنگام بارگذاری اطلاعات" , "error"));
+                      .catch(() =>
+                        sendMessage("خطا هنگام بارگذاری اطلاعات", "error")
+                      );
                   } else {
-                    sendMessage("قابلیت اشتراک گذاری در مرورگر شما فعال نمی باشد لطفا از مرورگر دیگری استفاده کنید" , "error");
+                    sendMessage(
+                      "قابلیت اشتراک گذاری در مرورگر شما فعال نمی باشد لطفا از مرورگر دیگری استفاده کنید",
+                      "error"
+                    );
                   }
                 };
               } else {
@@ -224,21 +225,16 @@ fetch(`db.json?${Date.now() + Math.random()}`)
             ).innerHTML = `در ورژن ${version} کتابخونهٔ روبیکا چه میگذرد`;
             $("title").innerHTML += `${version}`;
             brand.onclick = () => {
-              location.assign(
-                location.origin + location.pathname
-              );
+              location.assign(location.origin + location.pathname);
             };
-    
 
             // function for add elements
             $("section").hidden = false;
 
             for (let i = 0; i < titles.length; i++) {
               const preview =
-                descriptions[i]
-                  .replace(/<br\/>|\\n|href|<br>/gm, " ")
-                  .slice(0, 110)
-                  .trim() + "...";
+                getTextWithoutHtml(descriptions[i]).slice(0, 110).trim() +
+                "...";
 
               $(".gradient-list").innerHTML += `
               <li data-aos="zoom-out" class="card gradient-list-item rounded" id="${

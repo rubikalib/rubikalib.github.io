@@ -91,3 +91,15 @@ function sendMessage(message = "" , icon = "success"){
     title: message,
   });
 }
+
+/**
+ * 
+ * @param {string} text 
+ * @returns string
+ */
+function getTextWithoutHtml(text){
+  const div = document.createElement("div");
+  div.innerHTML = text;
+  console.log(div.textContent);
+  return div.textContent;
+}
