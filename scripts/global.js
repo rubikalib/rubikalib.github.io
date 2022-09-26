@@ -71,7 +71,7 @@ checkUrl([
     footer.querySelectorAll(".nav-link").forEach((element) => {
       element.onclick = () => {
         const attr = element.getAttribute("event");
-        goto(attr);
+        goto(attr , "_blank");
       };
     });
 
@@ -92,7 +92,7 @@ function showLicense() {
     });
 }
 
-async function goto(link = "") {
+async function goto(link = "" , target = "") {
   const a = document.createElement("a");
   let url = location.origin;
 
@@ -104,6 +104,7 @@ async function goto(link = "") {
   }
 
   a.href = url + "/redirect.htm?redirect=" + link;
+  a.target = target
   a.click();
 }
 
