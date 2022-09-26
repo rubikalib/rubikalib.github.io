@@ -100,7 +100,7 @@ async function goto(link = "") {
     location.pathname.split("/").length > 3 ||
     window.location.pathname.split(".").length !== 2
   ) {
-    url = location.origin + "/" + location.pathname.split("/")[1];
+    url = location.origin + "/" + location.pathname.split("/")[1] + "/";
   }
 
   a.href = url + "/redirect.htm?redirect=" + link;
