@@ -46,7 +46,7 @@ function checkUrl(queries = [{}], separator = []) {
           query.do("");
         } else {
           const result = datas.filter((val) => {
-            if (val.startsWith(query.key + "=")) {
+            if (val.startsWith(query.key + "=") || query.key === null) {
               return val;
             }
           })[0];
