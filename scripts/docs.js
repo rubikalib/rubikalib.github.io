@@ -215,7 +215,7 @@ fetch(`db.json?${Date.now() + Math.random()}`)
             },
           },
         ]).then(() => {
-          if ($("main > section")) {
+          if ($("main > section:not(.document)")) {
             brand.innerHTML += " " + version;
             header.querySelector(
               ".firstViewChild > h2"
