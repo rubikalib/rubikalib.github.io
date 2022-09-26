@@ -94,7 +94,16 @@ function showLicense() {
 
 async function goto(link = "") {
   const a = document.createElement("a");
-  a.href = "../redirect.htm?redirect=" + link;
+  let url = location.origin;
+
+  if (
+    location.pathname.split("/").length > 3 ||
+    window.location.pathname.split(".").length !== 2
+  ) {
+    url = location.origin + "/" + location.pathname.split("/")[1];
+  }
+
+  a.href = url + "/redirect.htm?redirect=" + link;
   a.click();
 }
 
@@ -115,7 +124,7 @@ function onDatasLoaded(header, footer) {
           $("main section ol").innerHTML == "") &&
         $("#error") == undefined,
       doc = $(".document") == undefined && $("#error") == undefined,
-      versions = $("main .col-12") === undefined
+      versions = $("main .col-12") === undefined;
 
     if (menu && doc && versions) {
       console.log("redirect");
