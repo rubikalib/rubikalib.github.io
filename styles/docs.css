@@ -94,6 +94,7 @@ pre {
 code {
   font-family: "ubuntu";
   border-radius: 5px;
+  direction: ltr;
 }
 .quiz {
   width: 25px;
