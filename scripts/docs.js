@@ -101,7 +101,7 @@ fetch(`db.json?${Date.now() + Math.random()}`)
                 main.style.backgroundColor = "white";
 
                 main.innerHTML = `
-                <div class="container-md document">
+                <section class="container-md document">
                   <h3 class="text-center text-secondary p-2">${title}</h3>
                   <div class="utils nav nav-pills nav-fill w-25">
                     <button title="کپی ادرس پست" class="fa fa-link nav-link"></button>
@@ -130,7 +130,7 @@ fetch(`db.json?${Date.now() + Math.random()}`)
                           }" class="arrow fa fa-arrow-right fs-3 rounded-pill"></a>`
                         : ""
                     }
-                  </div>
+                  </section>
               `;
 
                 main.querySelectorAll("pre").forEach(function (el) {

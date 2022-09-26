@@ -121,8 +121,8 @@ async function goto(link = "" , target = "") {
 function onDatasLoaded(header, footer) {
   if (header && footer) {
     const menu =
-        ($("main section ol").innerHTML == undefined ||
-          $("main section ol").innerHTML == "") &&
+        ($("main section:not(.document) ol").innerHTML == undefined ||
+          $("main section:not(.document) ol").innerHTML == "") &&
         $("#error") == undefined,
       doc = $(".document") == undefined && $("#error") == undefined,
       versions = $("main .col-12") === undefined;
