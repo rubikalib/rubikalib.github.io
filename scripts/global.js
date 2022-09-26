@@ -71,7 +71,7 @@ checkUrl([
     footer.querySelectorAll(".nav-link").forEach((element) => {
       element.onclick = () => {
         const attr = element.getAttribute("event");
-        goto(attr , "_blank");
+        goto(attr, "_blank");
       };
     });
 
@@ -92,7 +92,7 @@ function showLicense() {
     });
 }
 
-async function goto(link = "" , target = "") {
+async function goto(link = "", target = "") {
   const a = document.createElement("a");
   let url = location.origin;
 
@@ -100,10 +100,12 @@ async function goto(link = "" , target = "") {
     location.pathname.split("/").length > 3 ||
     window.location.pathname.split(".").length !== 2
   ) {
-    url = location.origin + "/" + location.pathname.split("/")[1] + "/";
+    url = location.origin + "/" + location.pathname.split("/")[1];
   }
 
-  a.href = url + "/redirect.htm?redirect=" + link;
+  url += url.endsWith("/") ? "" : "/";
+
+  a.href = url + "redirect.htm?redirect=" + link;
   a.target = target
   a.click();
 }
