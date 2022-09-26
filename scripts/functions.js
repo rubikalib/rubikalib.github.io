@@ -100,6 +100,6 @@ function sendMessage(message = "" , icon = "success"){
 function getTextWithoutHtml(text){
   const div = document.createElement("div");
   div.innerHTML = text;
-  console.log(div.textContent);
+
   return div.textContent;
 }
