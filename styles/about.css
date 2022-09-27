@@ -1,6 +1,10 @@
 @import "./global.css";
 
-section{
+* {
+  direction: rtl;
+}
+
+section {
   min-height: 95vh;
 }
 
