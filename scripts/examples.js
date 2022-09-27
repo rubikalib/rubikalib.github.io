@@ -1,5 +1,5 @@
 $("#header").onload = () => {
-  fetch(`../sources.json?${Date.now()}`)
+  fetch(`sources.json?${Date.now()}`)
     .then((data) => data.json())
     .then((result) => {
       const header = $("#header").contentDocument,
