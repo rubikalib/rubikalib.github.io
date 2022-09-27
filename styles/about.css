@@ -1,29 +1,57 @@
-.all {
-  background: #eee;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 8px #cccccc;
-  border: 0.2px solid #ddd;
-  width: fit-content;
-  height: fit-content;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+@import "./fonts.css";
+*,
+*::after,
+*::before {
+  /* reset elements */
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: all 0.5s linear;
+  direction: rtl;
 }
-.image {
-  margin-bottom: 10px;
+html {
+  overflow-y: scroll;
 }
-.header {
-  font-family: vazir;
-  color: black;
-  font-size: 20px;
+
+#header {
+  width: 99vw;
+  height: 80px;
 }
-.description {
-  margin-top: auto;
-  margin-bottom: auto;
-  font-family: "vazir";
-  color: black;
+
+#header {
+  height: 100vh;
+}
+
+section{
+  min-height: 95vh;
+}
+
+a {
+  color: #1b0773;
+  font-size: 15px;
+  user-select: none;
+  /* text-decoration: underline 1.8px #574AE2; use this effect instead */
+  text-decoration: underline 1.9px currentColor;
+  background-image: linear-gradient(
+    0deg,
+    #fcbf17,
+    #fcbf17 4px,
+    transparent 0,
+    transparent
+  );
+  cursor: pointer;
+}
+a:hover {
+  transition: 0.3s ease-in-out;
+  color: #1b0773;
+  font-weight: 700;
+  background-image: linear-gradient(
+    0deg,
+    #fcbf17,
+    #fcbf17 10px,
+    transparent 0,
+    transparent
+  );
 }
