@@ -31,15 +31,22 @@ checkUrl([
     const header = $("#header").contentDocument;
 
     header.querySelectorAll(".nav-link").forEach((element, i) => {
-      if (i == 5 && dark) {
-        element.innerHTML = element.innerHTML
-          .replace("moon", "sun")
-          .replace("شب", "روز");
-
+      if (i == 5) {
         element.setAttribute(
           "event",
-          element.getAttribute("event").replace(/darkmode/g, "lightmode")
+          location.href + element.getAttribute("event")
         );
+
+        if (dark) {
+          element.innerHTML = element.innerHTML
+            .replace("moon", "sun")
+            .replace("شب", "روز");
+
+          element.setAttribute(
+            "event",
+            element.getAttribute("event").replace(/darkmode/g, "lightmode")
+          );
+        }
       }
 
       element.onclick = () => {
