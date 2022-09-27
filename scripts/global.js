@@ -55,8 +55,7 @@ checkUrl([
     };
 
     header.querySelector("a.navbar-brand").onclick = () => {
-      if (location.href == location.origin + location.pathname)
-        goto("index.html");
+      goto("index.html");
     };
 
     loaded.header = true;
@@ -106,7 +105,7 @@ async function goto(link = "", target = "") {
   url += url.endsWith("/") ? "" : "/";
 
   a.href = url + "redirect.htm?redirect=" + link;
-  a.target = target
+  a.target = target;
   a.click();
 }
 
