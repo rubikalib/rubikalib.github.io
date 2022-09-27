@@ -35,7 +35,7 @@ fetch(`db.json?${Date.now() + Math.random()}`)
 
             $("main").innerHTML += `
               <div class="col-12 mb-5" data-aos="fade-up" data-aos-anchor-placement="top-center">
-                <div class="card">   
+                <div class="card rounded-4">   
                   <a href="?v=${v}?${Date.now()}">
                     <div class="card-body">
                       <h5 class="card-title text-center">
