@@ -41,7 +41,6 @@ html::-webkit-scrollbar-thumb:active {
 #header {
   width: calc(100vw - 7px);
   height: 80px;
-  float: left;
 }
 
 #header {
