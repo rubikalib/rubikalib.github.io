@@ -183,14 +183,12 @@ fetch(`db.json?${Date.now() + Math.random()}`)
                 document.body.removeChild($("main"));
                 document.body.removeChild($("#header"));
 
-                const error = document.createElement("iframe");
+                const error = document.createElement("img");
                 error.id = "error";
-                error.frameBorder = "0";
-                error.src = "./components/404.html";
+                error.src = "./assets/404.svg";
 
                 document.body.insertBefore(error, $("#footer"));
 
-                error.onload = () => {
                   Swal.fire({
                     title: "صفحه ی مورد نظر یافت نشد",
                     text: `ایا مایلید به صفحه ی اموزشات ورژن ${version} بروید`,
@@ -210,7 +208,6 @@ fetch(`db.json?${Date.now() + Math.random()}`)
                       sendMessage("عملیات با موفقیت لغو شد", "warning");
                     }
                   });
-                };
               }
             },
           },
