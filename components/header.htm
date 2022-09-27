@@ -22,13 +22,8 @@
 
         border-top-right-radius: 0;
         border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
 
         z-index: 2;
-      }
-
-      header .container-fluid {
-        height: 4.1rem;
       }
 
       .navbar-toggler:focus,
@@ -108,46 +103,44 @@
     </style>
   </head>
   <body>
-    <header class="navbar fixed-top text-bg-light rounded-4 shadow">
-      <div class="container-fluid">
-        <h1 class="fw-bold">
-          <a class="navbar-brand">
-            <img class="logo me-1" src="../assets/logo.png" alt="[logo]" />
-            rubika
-          </a>
-        </h1>
-        <button
-          class="navbar-toggler border-0"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvas-navbar"
-          aria-controls="offcanvas-navbar"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <nav
-          class="offcanvas offcanvas-end"
-          tabindex="-1"
-          id="offcanvas-navbar"
-          aria-labelledby="title"
-        >
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="title">کتابخونه ی روبیکا</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul
-              id="menu"
-              class="navbar-nav justify-content-end flex-grow-1 pe-3"
-            ></ul>
-          </div>
-        </nav>
-      </div>
+    <header class="navbar fixed-top text-bg-light rounded-4 shadow p-2">
+      <h1 class="fw-bold">
+        <a class="navbar-brand">
+          <img class="logo me-1" src="../assets/logo.png" alt="[logo]" />
+          rubika
+        </a>
+      </h1>
+      <button
+        class="navbar-toggler border-0"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvas-navbar"
+        aria-controls="offcanvas-navbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <nav
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvas-navbar"
+        aria-labelledby="title"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="title">کتابخونه ی روبیکا</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul
+            id="menu"
+            class="navbar-nav justify-content-end flex-grow-1 pe-3"
+          ></ul>
+        </div>
+      </nav>
     </header>
 
     <section id="firstView">
@@ -188,7 +181,7 @@
         "https://t.me/rubikalib",
         "https://t.me/rubikalibGP",
         "https://t.me/Bprogrammer",
-        `${location.href}?theme=darkmode`,
+        `?theme=darkmode`,
         "examples.html",
         "showLicense",
         "about.html",
