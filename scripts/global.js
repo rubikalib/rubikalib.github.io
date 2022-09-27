@@ -25,63 +25,69 @@ checkUrl([
     header: false,
   };
 
-  if ($("#header"))
-    $("#header").addEventListener("load", function () {
-      const header = $("#header").contentDocument;
+  if (!$("#header")) loaded.header = true;
 
-      header.querySelectorAll(".nav-link").forEach((element, i) => {
-        if (i == 5 && dark) {
-          element.innerHTML = element.innerHTML
-            .replace("moon", "sun")
-            .replace("شب", "روز");
+  $("#header").addEventListener("load", function () {
+    const header = $("#header").contentDocument;
 
-          element.setAttribute(
-            "event",
-            element.getAttribute("event").replace(/darkmode/g, "lightmode")
-          );
+    header.querySelectorAll(".nav-link").forEach((element, i) => {
+      if (i == 5 && dark) {
+        element.innerHTML = element.innerHTML
+          .replace("moon", "sun")
+          .replace("شب", "روز");
+
+        element.setAttribute(
+          "event",
+          element.getAttribute("event").replace(/darkmode/g, "lightmode")
+        );
+      }
+
+      element.onclick = () => {
+        const attr = element.getAttribute("event");
+        if (attr === "showLicense") {
+          showLicense();
+        } else {
+          goto(attr);
         }
-
-        element.onclick = () => {
-          const attr = element.getAttribute("event");
-          if (attr === "showLicense") {
-            showLicense();
-          } else {
-            goto(attr);
-          }
-        };
-      });
-
-      header.querySelector("a.special").onclick = () => {
-        window.scrollTo(0, innerHeight);
       };
-
-      header.querySelector("a.navbar-brand").onclick = () => {
-        goto("index.html");
-      };
-
-      loaded.header = true;
-
-      setTimeout(() => {
-        onDatasLoaded(loaded.header, loaded.footer);
-      }, 1500);
     });
 
-  if ($("#footer"))
-    $("#footer").onload = () => {
-      const footer = $("#footer").contentDocument;
-      footer.querySelectorAll(".nav-link").forEach((element) => {
-        element.onclick = () => {
-          const attr = element.getAttribute("event");
-          goto(attr, "_blank");
-        };
-      });
-
-      loaded.footer = true;
-
-      setTimeout(() => {
-        onDatasLoaded(loaded.header, loaded.footer);
-      }, 1500);
+    header.querySelector("a.special").onclick = () => {
+      window.scrollTo(0, innerHeight);
     };
+
+    header.querySelector("a.navbar-brand").onclick = () => {
+      goto("index.html");
+    };
+
+    loaded.header = true;
+
+    setTimeout(() => {
+      onDatasLoaded(loaded.header, loaded.footer);
+    }, 1500);
+  });
+
+  if (!$("#footer")) loaded.footer = true;
+
+  $("#footer").onload = () => {
+    const footer = $("#footer").contentDocument;
+    footer.querySelectorAll(".nav-link").forEach((element) => {
+      element.onclick = () => {
+        const attr = element.getAttribute("event");
+        goto(attr, "_blank");
+      };
+    });
+
+    loaded.footer = true;
+
+    setTimeout(() => {
+      onDatasLoaded(loaded.header, loaded.footer);
+    }, 1500);
+  };
+
+  setTimeout(() => {
+    onDatasLoaded(loaded.header, loaded.footer);
+  }, 1500);
 });
 
 function showLicense() {
