@@ -35,6 +35,10 @@
   float: left;
   width: 20px;
 }
+main {
+  width: 100vw;
+  min-height: auto;
+}
 main .container {
   width: 95%;
   margin-top: 30px;
