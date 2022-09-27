@@ -1,18 +1,5 @@
-@import "./fonts.css";
-*,
-*::after,
-*::before {
-  /* reset elements */
+@import "./global.css";
 
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  overflow: hidden;
-  transition: all 0.5s linear;
-}
-html {
-  overflow-y: scroll;
-}
 .part {
   margin: 10px;
   margin-bottom: 20px;
@@ -74,13 +61,4 @@ main .row > * > a {
   font-size: 0.8rem;
   text-decoration: none;
   font-family: vazir;
-}
-#footer,
-#header {
-  width: 99vw;
-  height: 80px;
-}
-
-#header {
-  height: 100vh;
 }

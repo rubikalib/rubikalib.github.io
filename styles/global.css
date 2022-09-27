@@ -1,0 +1,49 @@
+@import "./fonts.css";
+
+*,
+*::after,
+*::before {
+  /* reset elements */
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: all 0.5s linear;
+}
+html {
+  overflow-y: scroll;
+}
+
+html::-webkit-scrollbar {
+  width: 7px;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: var(--bs-light);
+  background-size: 10px 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: var(--bs-gray-300);
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background-color: var(--bs-gray-500);
+}
+
+html::-webkit-scrollbar-thumb:active {
+  background-color: var(--bs-gray-600);
+}
+
+#footer,
+#header {
+  width: calc(100vw - 7px);
+  height: 80px;
+  float: left;
+}
+
+#header {
+  height: 100vh;
+}

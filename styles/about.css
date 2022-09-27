@@ -1,28 +1,4 @@
-@import "./fonts.css";
-*,
-*::after,
-*::before {
-  /* reset elements */
-
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  overflow: hidden;
-  transition: all 0.5s linear;
-  direction: rtl;
-}
-html {
-  overflow-y: scroll;
-}
-
-#header {
-  width: 99vw;
-  height: 80px;
-}
-
-#header {
-  height: 100vh;
-}
+@import "./global.css";
 
 section{
   min-height: 95vh;
@@ -43,6 +19,7 @@ a {
   );
   cursor: pointer;
 }
+
 a:hover {
   transition: 0.3s ease-in-out;
   color: #1b0773;

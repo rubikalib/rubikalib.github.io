@@ -1,29 +1,7 @@
-@import "./fonts.css";
+@import "./global.css";
 
-*,
-*::after,
-*::before {
-  /* reset elements */
-
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  overflow: hidden;
-  transition: all 0.5s linear;
-}
-html {
-  overflow-y: scroll;
+*{
   direction: rtl;
-}
-
-#footer,
-#header {
-  width: 99vw;
-  height: 80px;
-}
-
-#header {
-  height: 100vh;
 }
 
 main {
