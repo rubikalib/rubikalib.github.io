@@ -137,15 +137,15 @@ async function goto(link = "", target = "") {
 
 function onDatasLoaded(header, footer) {
   if (header && footer) {
-    try {
-      $("main section:not(.document) ol") &&
+    const menu =
+        $("main section:not(.document) ol") &&
         ($("main section:not(.document) ol").innerHTML == undefined ||
           $("main section:not(.document) ol").innerHTML == "") &&
-        $("#error") == undefined;
+        $("#error"),
+      doc = $(".document") == undefined && $("#error"),
+      versions = $("main .col-12");
 
-      $(".document") == undefined && $("#error") == undefined;
-      $("main .col-12") === undefined;
-    } catch (error) {
+    if (menu && doc && versions) {
       console.log("redirect");
       location.reload();
 
