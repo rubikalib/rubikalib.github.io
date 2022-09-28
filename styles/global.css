@@ -43,6 +43,10 @@ html::-webkit-scrollbar-thumb:active {
   height: 80px;
 }
 
+#header[open]{
+  width: 100vw;
+}
+
 #header {
   height: 100vh;
 }
