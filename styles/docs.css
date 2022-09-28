@@ -123,8 +123,7 @@ code {
 }
 
 main {
-  padding-top: 2rem;
-  margin-bottom: 3rem;
+  padding: 2rem 0;
 }
 
 main,
