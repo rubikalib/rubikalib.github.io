@@ -68,6 +68,16 @@ checkUrl([
       goto("index.html");
     };
 
+    header.querySelector(".navbar-toggler-icon").onclick = () => {
+      $("#header").setAttribute("open", "");
+      $("html").style.overflowY = "hidden";
+    };
+
+    header.querySelector(".btn-close").onclick = () => {
+      $("#header").removeAttribute("open");
+      $("html").style.overflowY = "";
+    };
+
     loaded.header = true;
 
     setTimeout(() => {
