@@ -20,17 +20,6 @@ main {
   --bs-link-hover-color: var(--bs-nav-link-hover-color);
 }
 
-.nav-tabs {
-  --bs-nav-link-color: teal;
-  --bs-nav-tabs-link-active-color: #045555;
-  --bs-nav-link-hover-color: var(--bs-nav-tabs-link-active-color);
-  --bs-nav-tabs-link-active-border-color: var(--bs-nav-tabs-link-active-color);
-  --bs-nav-tabs-link-border-color: var(--bs-nav-link-color);
-  --bs-nav-tabs-link-active-bg: #ffffff56;
-  --bs-nav-tabs-border-color: #4daaaaa2;
-  --bs-nav-tabs-link-hover-border-color: #4daaaa31;
-}
-
 ul {
   min-height: 20vh;
   position: relative;
@@ -59,7 +48,7 @@ li .developer {
 
 .fa-cloud::before {
   font-size: 8rem;
-  color: var(--bs-nav-link-hover-color);
+  color: var(--cloud-color);
 }
 
 .empty {
@@ -95,6 +84,7 @@ li .developer {
   border: none;
   background-color: transparent;
   font-size: .8rem;
+  color: var(--color);
 }
 
 .how-to[aria-expanded = true]{
@@ -112,29 +102,28 @@ code {
 }
 
 p a {
-  color: #1b0773;
+  color: var(--special-color);
   font-size: 15px;
   user-select: none;
   /* text-decoration: underline 1.8px #574AE2; use this effect instead */
   text-decoration: underline 1.9px currentColor;
   background-image: linear-gradient(
     0deg,
-    #fcbf17,
-    #fcbf17 4px,
+    var(--special-bg),
+    var(--special-bg) 5px,
     transparent 0,
     transparent
   );
   cursor: pointer;
 }
-
 p a:hover {
   transition: 0.3s ease-in-out;
-  color: #1b0773;
+  color: var(--special-color);
   font-weight: 700;
   background-image: linear-gradient(
     0deg,
-    #fcbf17,
-    #fcbf17 10px,
+    var(--special-bg),
+    var(--special-bg) 10px,
     transparent 0,
     transparent
   );

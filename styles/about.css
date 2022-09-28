@@ -9,15 +9,15 @@ section {
 }
 
 a {
-  color: #1b0773;
+  color: var(--special-color);
   font-size: 15px;
   user-select: none;
   /* text-decoration: underline 1.8px #574AE2; use this effect instead */
   text-decoration: underline 1.9px currentColor;
   background-image: linear-gradient(
     0deg,
-    #fcbf17,
-    #fcbf17 4px,
+    var(--special-bg),
+    var(--special-bg) 5px,
     transparent 0,
     transparent
   );
@@ -26,12 +26,12 @@ a {
 
 a:hover {
   transition: 0.3s ease-in-out;
-  color: #1b0773;
+  color: var(--special-color);
   font-weight: 700;
   background-image: linear-gradient(
     0deg,
-    #fcbf17,
-    #fcbf17 10px,
+    var(--special-bg),
+    var(--special-bg) 10px,
     transparent 0,
     transparent
   );

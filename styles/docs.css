@@ -1,6 +1,6 @@
 @import "./global.css";
 
-*{
+* {
   direction: rtl;
 }
 
@@ -212,11 +212,6 @@ article:not(pre, pre *) {
 
   transform: translate(-50%, -50%);
 
-  color: var(--bs-gray-700);
-}
-
-.arrow:hover::before,
-.utils > *:hover {
   color: var(--bs-gray-900);
 }
 
@@ -242,9 +237,4 @@ pre:hover .copy {
   position: relative;
   right: 50%;
   transform: translateX(50%);
-}
-
-.utils > *,
-.utils > *:visited {
-  color: var(--bs-gray-700);
 }

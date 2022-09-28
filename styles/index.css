@@ -21,16 +21,10 @@
 }
 .fa-info,
 .fa-bolt,
-.code {
-  transform: translate(50%, -65%);
-}
-.fa-fire,
-.fa-shopping-bag,
-.fa-gift {
-  font-size: 25px;
+.fa-code {
+  transform: translate(60%, -85%);
 }
 .fa-arrow-left {
-  color: gray !important;
   text-decoration: none;
   float: left;
   width: 20px;
@@ -51,12 +45,9 @@ main .row > * {
   margin: 5px;
   margin-bottom: 3px;
   text-align: center;
-  background-color: var(--bs-success);
   position: relative;
 }
-main .row > *:hover {
-  background-color: rgba(var(--bs-success-rgb), 0.8);
-}
+
 main .row > * > a {
   position: absolute;
   right: 0;

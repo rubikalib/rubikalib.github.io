@@ -1,3 +1,10 @@
+if (localStorage.getItem("theme") === null) {
+  localStorage.setItem(
+    "theme",
+    matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+  );
+}
+
 checkUrl([
   {
     key: "darkmode",
@@ -13,12 +20,6 @@ checkUrl([
   },
 ]).then(() => {
   const dark = window.localStorage.getItem("theme") === "dark";
-  if (dark) {
-    document.head.innerHTML +=
-      '<link rel="stylesheet" href="styles/dark/index.css"/>';
-    document.body.innerHTML +=
-      '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/themes@5.0.2/wordpress-admin/wordpress-admin.css" />';
-  }
 
   const loaded = {
     footer: false,
@@ -136,16 +137,26 @@ async function goto(link = "", target = "") {
 
 function onDatasLoaded(header, footer) {
   if (header && footer) {
-    const menu =
+    try {
+      $("main section:not(.document) ol") &&
         ($("main section:not(.document) ol").innerHTML == undefined ||
           $("main section:not(.document) ol").innerHTML == "") &&
-        $("#error") == undefined,
-      doc = $(".document") == undefined && $("#error") == undefined,
-      versions = $("main .col-12") === undefined;
+        $("#error") == undefined;
 
-    if (menu && doc && versions) {
+      $(".document") == undefined && $("#error") == undefined;
+      $("main .col-12") === undefined;
+    } catch (error) {
       console.log("redirect");
       location.reload();
+
+      return void 0;
+    }
+
+    if (!$("#theme")) {
+      const theme = document.createElement("script");
+      theme.id = "theme";
+      theme.src = "./scripts/theme.js?" + Date.now();
+      document.body.appendChild(theme);
     }
   }
 }

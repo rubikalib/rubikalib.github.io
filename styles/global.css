@@ -20,21 +20,21 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-track {
-  background-color: var(--bs-light);
+  background-color: var(--scrollbar-track-bg);
   background-size: 10px 10px;
 }
 
 html::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background-color: var(--bs-gray-400);
+  background-color: var(--scrollbar-thumb-bg);
 }
 
 html::-webkit-scrollbar-thumb:hover {
-  background-color: var(--bs-gray-500);
+  background-color: var(--scrollbar-thumb-hover-bg);
 }
 
 html::-webkit-scrollbar-thumb:active {
-  background-color: var(--bs-gray-600);
+  background-color: var(--scrollbar-thumb-active-bg);
 }
 
 #footer,

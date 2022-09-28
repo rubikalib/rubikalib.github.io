@@ -8,10 +8,6 @@
 
     <style>
       @import "../styles/fonts.css";
-      :root {
-        /*add variables  */
-        --main-color: #1b0773;
-      }
 
       body,
       html {
@@ -65,15 +61,15 @@
         text-align: center;
       }
       a.special {
-        color: var(--main-color);
+        color: var(--special-color);
         font-size: 15px;
         user-select: none;
         /* text-decoration: underline 1.8px #574AE2; use this effect instead */
         text-decoration: underline 1.9px currentColor;
         background-image: linear-gradient(
           0deg,
-          #fcbf17,
-          #fcbf17 4px,
+          var(--special-bg),
+          var(--special-bg) 5px,
           transparent 0,
           transparent
         );
@@ -81,12 +77,12 @@
       }
       a.special:hover {
         transition: 0.3s ease-in-out;
-        color: var(--main-color);
+        color: var(--special-color);
         font-weight: 700;
         background-image: linear-gradient(
           0deg,
-          #fcbf17,
-          #fcbf17 10px,
+          var(--special-bg),
+          var(--special-bg) 10px,
           transparent 0,
           transparent
         );
@@ -104,7 +100,7 @@
     </style>
   </head>
   <body>
-    <header class="navbar fixed-top text-bg-light shadow p-2">
+    <header class="navbar fixed-top shadow p-2">
       <h1 class="fw-bold">
         <a class="navbar-brand">
           <img class="logo me-1" src="../assets/logo.png" alt="[logo]" />
