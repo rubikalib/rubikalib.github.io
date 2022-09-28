@@ -25,8 +25,8 @@ doForAllDoc((document) => {
 if (theme == "light") {
   console.log(theme);
 
-  if (documents[0]) {
-    documents[0].querySelector(".navbar").classList.add("text-bg-light");
+  if (documents[2]) {
+    documents[2].querySelector(".navbar").classList.add("text-bg-light");
   }
 } else if (theme == "dark") {
   console.log(theme);
