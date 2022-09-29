@@ -22,7 +22,7 @@ doForAllDoc((doc) => {
   if (doc !== document) {
     doc.head.innerHTML += `<link rel="stylesheet" href="../styles/theme/${theme}.css">`;
   } else {
-    document.head.innerHTML += `<link rel="stylesheet" href="./styles/theme/${theme}.css">`;
+    document.head.innerHTML += `<link rel="stylesheet" href="styles/theme/${theme}.css">`;
   }
 });
 
