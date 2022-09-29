@@ -13,10 +13,11 @@ loadBox.appendChild(loader);
 function onPageLoad() {
   setTimeout(() => {
     loader.classList.add("fade");
-    
+
     setTimeout(() => {
       loadBox.remove();
       $("#loader-style").remove();
+      document.querySelector("html").style.overflowY = "scroll";
     }, 500);
   }, 2000);
 }
