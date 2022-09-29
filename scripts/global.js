@@ -156,7 +156,7 @@ function onDatasLoaded(header, footer) {
       versions = $("main .col-12") == undefined,
       examples = ($(".tab-content") && $(".nav.nav-tabs")) == undefined,
       about = !location.href.includes("about"),
-      index = !location.href.includes("index") && location.pathname !== "/";
+      index = !location.href.includes("index") && location.pathname.replace("/","") === "";
 
     if (menu && doc && versions && examples && about && index) {
       console.log("redirect");
