@@ -12,6 +12,10 @@
 
   /* >>>>>>>>>>>>>>>> for examples page */
   --cloud-color: var(--bs-nav-link-hover-color);
+
+  /* >>>>>>>>>>>>>>>> for docs page */
+  --arrow-color: var(--bs-gray-900);
+  --arrow-bg : #ffffff98
 }
 
 /* *:not(.fa) {

@@ -13,6 +13,10 @@
 
   /* >>>>>>>>>>>>>>>> for examples page */
   --cloud-color: var(--bs-gray-800);
+
+  /* >>>>>>>>>>>>>>>> for docs page */
+  --arrow-color: var(--bs-gray-400);
+  --arrow-bg: var(--bs-gray-900);
 }
 
 html *:not(.fa:not(.theme), .special, code, code *, .utils > *) {

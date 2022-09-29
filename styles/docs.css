@@ -168,7 +168,7 @@ article:not(pre, pre *) {
 .arrow {
   width: 50px;
   height: 50px;
-  background-color: #ffffff98;
+  background-color: var(--arrow-bg);
 }
 
 @media only screen and (min-width: 788px) {
@@ -212,7 +212,7 @@ article:not(pre, pre *) {
 
   transform: translate(-50%, -50%);
 
-  color: var(--bs-gray-900);
+  color: var(--arrow-color);
 }
 
 #error {
