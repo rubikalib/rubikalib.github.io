@@ -68,3 +68,5 @@ if (theme == "light") {
         );
     });
 }
+
+onPageLoad();
