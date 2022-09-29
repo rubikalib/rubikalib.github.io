@@ -10,12 +10,14 @@ checkUrl([
     key: "darkmode",
     do: () => {
       localStorage.setItem("theme", "dark");
+      location.reload()
     },
   },
   {
     key: "lightmode",
     do: () => {
       localStorage.setItem("theme", "light");
+      location.reload()
     },
   },
 ]).then(() => {
