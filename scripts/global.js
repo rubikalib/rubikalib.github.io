@@ -151,18 +151,14 @@ function onDatasLoaded(header, footer) {
         $("main section:not(.document) ol") &&
         ($("main section:not(.document) ol").innerHTML == undefined ||
           $("main section:not(.document) ol").innerHTML == "") &&
-        $("#error"),
-      doc = $(".document") == undefined && $("#error"),
-      versions = $("main .col-12");
+        $("#error") !== undefined,
+      doc = $(".document") == undefined && $("#error") !== undefined,
+      versions = $("main .col-12") !== undefined;
 
-    if (menu && doc && versions) {
+    if ((menu && doc && versions) == false) {
       console.log("redirect");
       location.reload();
-
-      return void 0;
-    }
-
-    if (!$("#theme")) {
+    } else if (!$("#theme")) {
       const theme = document.createElement("script");
       theme.id = "theme";
       theme.src = "./scripts/theme.js?" + Date.now();
