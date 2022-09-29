@@ -187,7 +187,9 @@
         const li = document.createElement("li");
         li.classList.add("nav-item");
         li.innerHTML = `
-          <a href="javascript:void(0)" event="${events[i]}" class="nav-link fw-bold">${texts[i]}</a>
+          <a href="javascript:void(0)" event="${
+            events[i]
+          }" class="nav-link fw-bold ${i == 5 ? "theme" : ""}">${texts[i]}</a>
         `;
 
         menu.appendChild(li);
