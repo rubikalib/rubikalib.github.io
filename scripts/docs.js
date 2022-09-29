@@ -226,7 +226,7 @@ fetch(`db.json?${Date.now() + Math.random()}`)
             };
 
             // function for add elements
-            $("section").hidden = false;
+            $("section:not(#load-box)").hidden = false;
 
             for (let i = 0; i < titles.length; i++) {
               const preview =
