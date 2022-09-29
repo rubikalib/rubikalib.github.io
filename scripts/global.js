@@ -157,7 +157,7 @@ function onDatasLoaded(header, footer) {
 
     if (menu && doc && versions) {
       console.log("redirect");
-      // location.reload();
+      location.reload();
     } else if (!$("#theme")) {
       const theme = document.createElement("script");
       theme.id = "theme";
