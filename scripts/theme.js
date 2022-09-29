@@ -18,8 +18,12 @@ function doForAllDoc(doWhat = () => {}) {
   });
 }
 
-doForAllDoc((document) => {
-  document.head.innerHTML += `<link rel="stylesheet" href="${location.origin}/styles/theme/${theme}.css">`;
+doForAllDoc((doc) => {
+  if (doc !== document) {
+    doc.head.innerHTML += `<link rel="stylesheet" href="../styles/theme/${theme}.css">`;
+  } else {
+    document.head.innerHTML += `<link rel="stylesheet" href="./styles/theme/${theme}.css">`;
+  }
 });
 
 if (theme == "light") {
