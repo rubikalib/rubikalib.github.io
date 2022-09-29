@@ -148,16 +148,16 @@ async function goto(link = "", target = "") {
 function onDatasLoaded(header, footer) {
   if (header && footer) {
     const menu =
-        $("main section:not(.document) ol") &&
-        ($("main section:not(.document) ol").innerHTML == undefined ||
-          $("main section:not(.document) ol").innerHTML == "") &&
-        $("#error") !== undefined,
-      doc = $(".document") == undefined && $("#error") !== undefined,
-      versions = $("main .col-12") !== undefined;
+        ($("main section:not(.document) ol") &&
+          ($("main section:not(.document) ol").innerHTML == undefined ||
+            $("main section:not(.document) ol").innerHTML == "") &&
+          $("#error")) == undefined,
+      doc = $(".document") == undefined && $("#error") == undefined,
+      versions = $("main .col-12") == undefined;
 
-    if ((menu && doc && versions) == false) {
+    if (menu && doc && versions) {
       console.log("redirect");
-      location.reload();
+      // location.reload();
     } else if (!$("#theme")) {
       const theme = document.createElement("script");
       theme.id = "theme";
