@@ -67,6 +67,8 @@ fetch(`db.json?${Date.now() + Math.random()}`)
           return e;
         }
 
+        header.querySelector(".theme").remove()
+
         checkUrl([
           {
             key: "doc",
