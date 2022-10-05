@@ -1,0 +1,199 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../libs/bootstrap.min.css" />
+    <title>header</title>
+
+    <style>
+      @import "../styles/fonts.css";
+
+      body,
+      html {
+        all: unset;
+      }
+
+      header {
+        width: 100vw;
+
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+
+        z-index: 2;
+      }
+
+      .navbar-toggler:focus,
+      .navbar-toggler:focus-visible {
+        border-width: 0 !important;
+      }
+
+      .logo {
+        position: relative;
+        width: 50px;
+        height: 70px;
+      }
+
+      .offcanvas {
+        direction: rtl;
+      }
+
+      #firstView {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+      }
+      .firstViewChild {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 90%;
+        text-align: center;
+      }
+      h2 {
+        width: 100%;
+
+        user-select: none;
+
+        line-height: 3rem !important;
+        text-align: center;
+      }
+      a.special {
+        color: var(--special-color);
+        font-size: 15px;
+        user-select: none;
+        /* text-decoration: underline 1.8px #574AE2; use this effect instead */
+        text-decoration: underline 1.9px currentColor;
+        background-image: linear-gradient(
+          0deg,
+          var(--special-bg),
+          var(--special-bg) 5px,
+          transparent 0,
+          transparent
+        );
+        cursor: pointer;
+      }
+      a.special:hover {
+        transition: 0.3s ease-in-out;
+        color: var(--special-color);
+        font-weight: 700;
+        background-image: linear-gradient(
+          0deg,
+          var(--special-bg),
+          var(--special-bg) 10px,
+          transparent 0,
+          transparent
+        );
+      }
+      .bot {
+        margin: 10px; /*50px is a lot 😐*/
+        position: absolute;
+        width: 20vw;
+        bottom: 0;
+        right: 0;
+      }
+      .navbar-brand {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar fixed-top shadow p-2">
+      <h1 class="fw-bold">
+        <a class="navbar-brand">
+          <img class="logo me-1" src="../assets/logo.png" alt="[logo]" />
+          rubika
+        </a>
+      </h1>
+      <button
+        class="navbar-toggler border-0"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvas-navbar"
+        aria-controls="offcanvas-navbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <nav
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvas-navbar"
+        aria-labelledby="title"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="title">کتابخونه ی روبیکا</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul
+            id="menu"
+            class="navbar-nav justify-content-end flex-grow-1 pe-3"
+          ></ul>
+        </div>
+      </nav>
+    </header>
+
+    <section id="firstView">
+      <div class="firstViewChild" dir="rtl">
+        <h2>کتابخونهٔ روبیکا</h2>
+        <br />
+        <a class="special" href="javascript:void(0)">
+          ربات روبیکای خودت رو داشته باش!
+        </a>
+      </div>
+      <img
+        class="bot"
+        src="https://media-s3-us-east-1.ceros.com/aspencore/images/2019/01/04/eba390aab3b0e636eeb47861adc1d520/robot-waving.gif"
+        alt="bot"
+      />
+    </section>
+
+    <link rel="stylesheet" href="../libs/font-awesome.css" />
+    <script src="../libs/bootstrap.min.js"></script>
+    <script src="../scripts/functions.js"></script>
+    <script>
+      const texts = [
+        "<i class='fa fa-home ms-1'></i> خانه",
+        "<i class='fa fa-book ms-1'></i> مستندات",
+        "<i class='fa fa-bullhorn ms-1'></i> اخبار",
+        "<i class='fa fa-comments ms-1'></i> گفتگو",
+        "<i class='fa fa-user-circle-o ms-1'></i> پشتیبانی",
+        "<i class='fa fa-moon-o ms-1'></i> حالت شب",
+        "<i class='fa fa-code ms-1'></i> نمونه‌ها",
+        "<i class='fa fa-file ms-1'></i> مجوز",
+        "<i class='fa fa-users ms-1'></i> درباره‌ما",
+      ];
+
+      const events = [
+        "index.html",
+        "docs.html",
+        "https://t.me/rubikalib",
+        "https://t.me/rubikalibGP",
+        "https://t.me/Bprogrammer",
+        `?theme=darkmode`,
+        "examples.html",
+        "showLicense",
+        "about.html",
+      ];
+
+      for (let i = 0; i <= texts.length - 1; i++) {
+        const li = document.createElement("li");
+        li.classList.add("nav-item");
+        li.innerHTML = `
+          <a href="javascript:void(0)" event="${
+            events[i]
+          }" class="nav-link fw-bold ${i == 5 ? "theme" : ""}">${texts[i]}</a>
+        `;
+
+        menu.appendChild(li);
+      }
+    </script>
+  </body>
+</html>

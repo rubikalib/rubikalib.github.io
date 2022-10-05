@@ -1,50 +1,86 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta name="viewport" content="width=device-width">
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-	<link rel="stylesheet" href="styles/index.css" type="text/css" media="all" />
-	<link rel="stylesheet" href="styles/examples.css" type="text/css" media="all" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-	<title>کتابخونهٔ روبیکا/نمونه‌ها</title>
-</head>
-<body>
-	<div id="all">
-		<nav class="nav bg-light toolbar fixed-top">
-			<img src="assets/logo.png" alt="[logo]" class="toolbar-image" />
-			<span class="toolbar-text">rubika</span>
-		</nav>
-		<div class="content" dir="rtl">
-			<div class="box" id="groups">
-				<p class="item-title">
-					<i class="fa fa-code"></i>
-					سورس‌کد های گروه
-				</p>
-			</div>
-			<div class="box" id="channels">
-				<p class="item-title">
-					<i class="fa fa-code"></i>
-					سورس‌کد های کانال
-				</p>
-			</div>
-			<div class="box" id="privates">
-				<p class="item-title">
-					<i class="fa fa-code"></i>
-					سورس‌کد های پیوی
-				</p>
-			</div>
-			<div class="box" id="multiplatforms">
-				<p class="item-title">
-					<i class="fa fa-code"></i>
-					سورس‌کد های چندمنظوره
-				</p>
-			</div>
-		</div>
-	</div>
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="./libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="./libs/font-awesome.css" />
+    <link
+      rel="stylesheet"
+      href="styles/examples.css"
+      type="text/css"
+      media="all"
+    />
+    <title>کتابخونهٔ روبیکا > نمونه‌ها</title>
+  </head>
+  <body>
+    <script src="scripts/loader.js"></script>
+    <iframe src="./components/header.htm" frameborder="0" id="header"></iframe>
 
-	<script src="scripts/examples.js" type="application/javascript" charset="utf-8"></script>
-	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</body>
+    <main class="container-md">
+      <nav class="nav nav-tabs"></nav>
+
+      <ul class="tab-content nav flex-column"></ul>
+
+      <section class="container-fluid">
+        <h5 class="q">
+          چجوری رباتمو به این لیست اضافه کنم ؟
+          <button
+            data-bs-toggle="collapse"
+            data-bs-target="p"
+            aria-expanded="false"
+            class="fa fa-arrow-down how-to"
+          ></button>
+        </h5>
+        <p class="collapse">
+          اول شما باید یه حساب <a href="//github.com/login">گیت هاب</a> داشته
+          باشین و بتونین با <a href="//github.com">گیت هاب</a> و
+          <a href="//git-scm.com">گیت</a> کار کنین
+          <br />
+          بعد شما یه <a href="//github.com/new">ریسپانسیتوری</a> توی گیت هاب
+          درست میکنین و پروژتونو توش قرار میدین
+          <br />
+          بعد از توی منوی <code>code</code> بخش <code>https</code> موس رو
+          روی قسمت download ZIP قرار میدن راست کلیک میکنید و copy link address
+          رو میزنین
+          <br />
+          و بعدش وارد صفحه ی ریسپانسیتوری
+          <a href="//github.com/rubikalib/rubikalib.github.io">این سایت</a> تو
+          گیت هاب میشین و گزینه ی <code>fork</code> رو میزنین
+          <br />
+          حالا یک کپی از این ریسپانسیتوری توی صفحه ی خودتون درست میشه
+          <br />
+          الان باید این ریسپانسیتوری رو تو سیستم خودتون با استفاده از گیت
+          <code>clone</code> کنین
+          <br />
+          بعد وارد فایل <code>sources.json</code> میشین از توی هر دسته ای که به
+          ربات شما مربوط میشه بخش <code>items</code> رو پیدا میکنین و یک object
+          با قالب زیر در اخر ارایه قرار میدین
+          <br />
+          <code>
+            { "name": "نام ربات", "developer": "طراح", "URL": "ادرس فایل زیپ
+            ربات در گیت هاب" }
+          </code>
+          <br />
+          حالا یه merge pull request ایجاد میکنین و عنوانش رو افزودن ربات جدید
+          قرار میدین
+          <br />
+          request شما پس از تایید merge میشه و شما میتونین رباتتونو توی لیست
+          ببینین ❤
+        </p>
+      </section>
+    </main>
+
+    <iframe src="./components/footer.htm" frameborder="0" id="footer"></iframe>
+
+    <script src="./scripts/functions.js"></script>
+    <script src="./scripts/global.js"></script>
+    <script src="./libs/bootstrap.min.js"></script>
+    <script
+      src="scripts/examples.js"
+      type="application/javascript"
+      charset="utf-8"
+    ></script>
+    <script src="./libs/sweetalert2@11.js"></script>
+  </body>
 </html>

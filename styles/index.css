@@ -1,312 +1,59 @@
-* {
-	transition: .1500ms ease-in-out;
-}
-body {
-	padding: 0;
-	margin: 0;
-}
-.firstViewChild {
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	margin: auto;
-	width: fit-content;
-	height: fit-content;
-	position: absolute;
-	font-family: "vazirb";
-}
-.text1 {
-	font-size: 30px;
-	user-select: none;
-}
-.text2 {
-	font-size: 15px;
-	user-select: none;
-	text-decoration: underline 1.8px #574AE2;
-}
-.text2:hover {
-	transition: .3s ease-in-out;
-	text-decoration: underline 1.9px #4c3ee0;
-	text-shadow: 0 0 8px #0d0d0d;
-}
-.bot {
-	margin: 50px;
-	position: absolute;
-	width: 100px;
-	height: 130px;
-	bottom: 0;
-	right: 0;
-}
-nav {
-	user-select: none;
-}
+@import "./global.css";
+
 .part {
-	margin: 10px;
-	margin-bottom: 20px;
-	padding: 8px;
-	width: 90%;
-	text-align: right;
-	font-family: "vazir";
-}
-a {
-	color: #756be5;
-}
-.head {
-	display: flex;
+  margin: 10px;
+  margin-bottom: 20px;
+  padding: 8px;
+  width: 90%;
+  text-align: right;
+  font-family: "vazir";
 }
 .icon {
-	padding: 20px;
-	border: 1px solid #000;
-	border-radius: 50px;
-	width: 10px;
-	height: 10px;
-	margin-left: 8px;
+  padding: 20px;
+  width: 10px;
+  height: 10px;
+  font-size: 2rem;
+  float: right;
 }
 .title {
-	margin-top: auto;
-	margin-bottom: auto;
-	font-family: "vazirb";
+  margin-top: auto;
+  margin-bottom: auto;
 }
-.fa-info, .fa-bolt, .code {
-	transform: translate(50%, -65%);
-}
-.fa-fire, .fa-shopping-bag, .fa-gift {
-	font-size: 25px;
-}
-.icon-arrow {
-	margin-right: auto;
+.fa-info,
+.fa-bolt,
+.fa-code {
+  transform: translate(60%, -85%);
 }
 .fa-arrow-left {
-	color: gray !important;
-	text-decoration: none;
+  text-decoration: none;
+  float: left;
+  width: 20px;
 }
-.data {
-	width: 95%;
-	margin-top: 30px;
-	padding-right: 45px;
+main {
+  width: 100vw;
+  min-height: auto;
 }
-.column {
-	width: 95%;
-	height: 30px;
-	user-select: none;
-	border-radius: 5px;
-	margin-bottom: 3px;
-	border: 1px solid #ccc;
-	text-align: center !important;
+main .container {
+  width: 95%;
+  margin-top: 30px;
+  padding-right: 45px;
+  font-family: vazir;
 }
-.column:hover {
-	transition: .3s ease-in-out;
-	background-color: #eeeeeeee;
-	border: 1.3px solid #bbb;
-	font-weight: bold;
-}
-.card {
-	margin: 10px;
-	padding: 10px;
-	color: #212121;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-	padding-left: 20px;
-	margin-bottom: 20px;
-	padding-right: 20px;
-	background-clip: border-box;
-	border: 0.5px dashed #424242;
-	border-radius: 3px 3px 3px 50px;
-	box-shadow: 7px 7px 21px #bebebeee, -7px -7px 21px #ffffffee;
-}
-.card-one {
-	background: #e0e0e0;
-	color: #5e5e5e;
-}
-.card-two {
-	background: #bbb;
-	color: #5e5e5e;
-}
-.card-three {
-	background: #e0e0e0;
-	color: #5e5e5e;
-}
-.buy-one, .buy-three {
-	color: #574AE2;
-	border: 1.5px solid #574AE2;
-	background-color: transparent;
-}
-.buy-two {
-	color: white;
-	border: none;
-	background: #574AE2;
-}
-.buy-one:hover, .buy-three:hover {
-	color: white;
-	font-size: 14px;
-	background: #574AE2;
-}
-.buy-two:hover {
-	font-size: 14px;
-}
-.options, .titre, .fa-dollar {
-	color: black;
-}
-.options {
-	text-align: right;
-}
-.titre {
-	font-weight: bold;
-}
-.buy {
-	border-radius: 50px;
-	margin-top: 10px;
-	font-family: "vazir";
-	font-size: 12px;
-	margin-bottom: 5px;
-	padding: 5px;
-}
-.buy:hover {
-	transition: .2s ease-in-out;
-	box-shadow: none;
-	font-weight: bold;
+main .row > * {
+  height: 30px;
+  border-radius: 5px;
+  margin: 5px;
+  margin-bottom: 3px;
+  text-align: center;
+  position: relative;
 }
 
-.logo {
-	border: 1px solid #000;
-	border-radius: 50px;
-	background-color: #FFF;
-	font-size: 20px;
-	width: 50px;
-	height: 50px;
-	padding: 10px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.btn-menu {
-	background: #e0e0e0;
-	box-shadow: 7px 7px 14px #bebebe, -7px -7px 14px #ffffff;
-	border-radius: 50px;
-	border-radius: 50px;
-	color: black;
-	background-size: 150%;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 15px;
-	-webkit-animation: fadeInDown 500ms ease-in-out;
-	animation: fadeInDown 500ms ease-in-out;
-}
-.hided {
-	-webkit-animation: fadeInUp 500ms ease-in-out;
-	animation: fadeInUp 500ms ease-in-out;
-}
-.btn-menu:hover {
-	background: #f5f5f5;
-	color: #212121;
-	box-shadow: 0 0 8px #727272;
-}
-.items {
-	background: linear-gradient(toleft,#fff,#ccc);
-	background-size: 400% 400%;
-	animation: gradient 30s ease-in-out infinite;
-	padding: 8px;
-}
-.items-org {
-	margin: auto;
-	position: absolute;
-	width: fit-content;
-	height: fit-content;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	animation: fadeInUp 500ms ease-in-out;
-	-webkit-animation: fadeInUp 500ms ease-in-out;
-}
-.toolbar {
-	background: transparent;
-	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-	border: 0.5px dashed #212121;
-	border-bottom-left-radius: 20px;
-	border-bottom-right-radius: 20px;
-	padding-left: 10px;
-	display: flex;
-}
-.toolbar-image {
-	width: 53px;
-	height: 75px;
-	border-radius: 50px;
-}
-.toolbar-text {
-	font-family: "ubuntu";
-	font-weight: bold;
-	margin-left: 10px;
-	font-size: 20px;
-	margin-bottom: auto;
-	margin-top: auto;
-}
-.btn-item {
-	border-radius: 3px;
-	margin: 4px;
-	font-size: 10px;
-	direction: rtl;
-}
-.footer {
-	color: #cfcfcf;
-	text-align: center;
-	font-size: 13px;
-	font-family: "vazir";
-}
-.social-medias {
-	word-spacing: 15px;
-}
-.social-media {
-	color: gray;
-	text-decoration: none;
-}
-.social-media:hover {
-	transition: .3s ease-in-out;
-	color: purple;
-	font-size: 15px;
-}
-@keyframes gradient {
-	0% {
-		background-position: 0 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0 100%;
-	}
-}
-@keyframes fadeInUp {
-	0% {
-		opacity: 0;
-		transform: translateY(100px);
-	}
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-@keyframes fadeInDown {
-	0% {
-		opacity: 0;
-		transform: translateY(-100px);
-	}
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-@font-face {
-	font-family: "vazir";
-	src: url("../assets/vazir.ttf");
-}
-@font-face {
-	font-family: "vazirb";
-	src: url("../assets/vazir_black.ttf");
-}
-@font-face {
-	font-family: "ubuntu";
-	src: url("../assets/ubuntu.ttf");
+main .row > * > a {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  color: var(--bs-light);
+  font-size: 0.8rem;
+  text-decoration: none;
+  font-family: vazir;
 }

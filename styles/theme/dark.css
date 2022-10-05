@@ -1,0 +1,52 @@
+:root {
+  --color: var(--bs-gray-200);
+
+  /* ---------------- scroller ---------------- */
+  --scrollbar-track-bg: var(--bs-dark);
+  --scrollbar-thumb-bg: var(--bs-gray-700);
+  --scrollbar-thumb-hover-bg: var(--bs-gray-600);
+  --scrollbar-thumb-active-bg: var(--bs-gray-500);
+
+  /* >>>>>>>>>>>>>>>> for header page */
+  --special-color: #fffffa;
+  --special-bg: #0c0836;
+
+  /* >>>>>>>>>>>>>>>> for examples page */
+  --cloud-color: var(--bs-gray-800);
+
+  /* >>>>>>>>>>>>>>>> for docs page */
+  --arrow-color: var(--bs-gray-400);
+  --arrow-bg: var(--bs-gray-900);
+}
+
+html *:not(.fa:not(.theme), .special, code, code *, .utils > *) {
+  /* ---------------- texts ---------------- */
+  color: var(--color);
+}
+
+/* >>>>>>>>>>>>>>>> for footer page */
+.social-media {
+  --bs-nav-link-color: var(--bs-gray-500);
+  --bs-nav-link-hover-color: var(--bs-gray-400);
+}
+
+/* >>>>>>>>>>>>>>>> for index page */
+
+main .row > * {
+  background-color: #26303a;
+}
+
+main .row > *:hover {
+  background-color: #2c3644;
+}
+
+.fa-arrow-left {
+  color: var(--bs-gray-300) !important;
+}
+
+/* >>>>>>>>>>>>>>>> for docs page */
+.utils > *,
+.utils > *:visited {
+  --bs-nav-link-color: var(--bs-gray-600);
+  --bs-nav-link-hover-color: var(--bs-gray-500);
+}
