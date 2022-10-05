@@ -137,30 +137,30 @@ async function goto(link = "", target = "") {
   a.click();
 }
 
-(async function noCache() {
-  $("*[src]").forEach((el) => {
-    el.src = el.src + "?" + Date.now();
-  });
+// (async function noCache() {
+//   $("*[src]").forEach((el) => {
+//     el.src = el.src + "?" + Date.now();
+//   });
 
-  // $("*[href]").forEach((el) => {
-  //   el.href = el.href + "?" + Date.now();
-  // });
-})();
+//   // $("*[href]").forEach((el) => {
+//   //   el.href = el.href + "?" + Date.now();
+//   // });
+// })();
 
 function onDatasLoaded(header, footer) {
   if (header && footer) {
-    const menu =
-        ($("main section:not(.document) ol") == undefined ||
-            $("main section:not(.document) ol").innerHTML == "") &&
-          $("#error") == undefined,
-      doc = $(".document") && $("#error") ,
-      versions = $("main .col-12") ,
-      examples = ($(".tab-content") && $(".nav.nav-tabs")) ;
+    // const menu =
+    //     ($("main section:not(.document) ol") == undefined ||
+    //         $("main section:not(.document) ol").innerHTML == "") &&
+    //       $("#error") == undefined,
+    //   doc = $(".document") && $("#error") ,
+    //   versions = $("main .col-12") ,
+    //   examples = ($(".tab-content") && $(".nav.nav-tabs")) ;
 
-    if (menu && doc && versions && examples) {
-      console.log("redirect");
-      location.reload();
-    }
+    // if (menu && doc && versions && examples) {
+    //   console.log("redirect");
+    //   location.reload();
+    // }
 
     if (!$("#theme")) {
       const theme = document.createElement("script");
