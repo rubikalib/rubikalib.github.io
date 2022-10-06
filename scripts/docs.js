@@ -64,13 +64,10 @@ fetch(`db.json`)
           h2.innerHTML = "مستندات کتابخونهٔ روبیکا";
           special.innerHTML = "انتخاب نسخه 🕵️‍♂️";
 
-          loaded.datas = true;
-          onDatasLoaded();
-
           return e;
         }
 
-        header.querySelector(".theme").remove();
+        header.querySelector(".theme").remove()
 
         checkUrl([
           {
@@ -194,23 +191,25 @@ fetch(`db.json`)
 
                 document.body.insertBefore(error, $("#footer"));
 
-                Swal.fire({
-                  title: "صفحه ی مورد نظر یافت نشد",
-                  text: `ایا مایلید به صفحه ی اموزشات ورژن ${version} بروید`,
-                  icon: "error",
-                  showDenyButton: true,
-                  showCloseButton: true,
-                  confirmButtonText: "ورود",
-                  denyButtonText: "خیر",
-                }).then((result) => {
-                  if (result.isConfirmed) {
-                    location.assign(
-                      location.origin + location.pathname + `?v=${version}`
-                    );
-                  } else if (result.isDenied) {
-                    sendMessage("عملیات با موفقیت لغو شد", "warning");
-                  }
-                });
+                  Swal.fire({
+                    title: "صفحه ی مورد نظر یافت نشد",
+                    text: `ایا مایلید به صفحه ی اموزشات ورژن ${version} بروید`,
+                    icon: "error",
+                    showDenyButton: true,
+                    showCloseButton: true,
+                    confirmButtonText: "ورود",
+                    denyButtonText: "خیر",
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      location.assign(
+                        location.origin +
+                          location.pathname +
+                          `?v=${version}`
+                      );
+                    } else if (result.isDenied) {
+                      sendMessage("عملیات با موفقیت لغو شد", "warning");
+                    }
+                  });
               }
             },
           },
@@ -237,7 +236,9 @@ fetch(`db.json`)
                 "...";
 
               $(".gradient-list").innerHTML += `
-              <li data-aos="zoom-out" class="card gradient-list-item rounded" id="${links[i]}">
+              <li data-aos="zoom-out" class="card gradient-list-item rounded" id="${
+                links[i]
+              }">
                   <div class="card-body">
                     <h5 class="card-title text-center">
                       <a href="?v=${version}&doc=${links[i]}">
@@ -251,14 +252,13 @@ fetch(`db.json`)
               </li>`;
             }
           }
-
-          loaded.datas = true;
-          onDatasLoaded();
         });
       };
     });
   });
 
 function loadDoc(version, doc) {
-  window.location.assign(`?v=${version}&doc=${doc}`);
+  window.location.assign(
+    `?v=${version}&doc=${doc}`
+  );
 }
