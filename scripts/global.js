@@ -161,7 +161,7 @@ function onDatasLoaded(header, footer) {
       theme.src = "./scripts/theme.js?" + Date.now();
       document.body.appendChild(theme);
     }
-  } else {
+  } else if (!(header && footer)) {
     console.log("reload");
     sendMessage("page datas didn't load", "error");
     location.reload();
