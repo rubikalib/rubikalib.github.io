@@ -1,4 +1,4 @@
-fetch(`db.json?${Date.now() + Math.random()}`)
+fetch(`db.json`)
   .then((data) => data.json())
   .then((result) => {
     const db = result,
