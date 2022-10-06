@@ -29,8 +29,12 @@ checkUrl([
 ]).then(() => {
   const dark = window.localStorage.getItem("theme") === "dark";
 
-  if (!$("#header")) loaded.header = true;
-  else
+  if (!$("#header")) {
+    loaded.header = true;
+    setTimeout(() => {
+      onDatasLoaded(loaded);
+    }, 2000);
+  } else {
     $("#header").addEventListener("load", function () {
       const header = $("#header").contentDocument;
 
@@ -87,9 +91,14 @@ checkUrl([
         onDatasLoaded(loaded);
       }, 2000);
     });
+  }
 
-  if (!$("#footer")) loaded.footer = true;
-  else
+  if (!$("#footer")) {
+    loaded.footer = true;
+    setTimeout(() => {
+      onDatasLoaded(loaded);
+    }, 2000);
+  } else {
     $("#footer").onload = () => {
       const footer = $("#footer").contentDocument;
       footer.querySelectorAll(".nav-link").forEach((element) => {
@@ -105,6 +114,7 @@ checkUrl([
         onDatasLoaded(loaded);
       }, 2000);
     };
+  }
 
   setTimeout(() => {
     onDatasLoaded(loaded);
@@ -155,9 +165,9 @@ function onDatasLoaded(loaded) {
     if (loaded.datas) {
       console.log("datas loaded");
 
-      if(!(loaded.footer && loaded.header)){
-        reload()
-      }
+      // if(!(loaded.footer && loaded.header)){
+      //   reload()
+      // }
     }
   }
 
@@ -172,6 +182,8 @@ function onDatasLoaded(loaded) {
     } else {
       reload();
     }
+  }else if(!loaded.datas){
+    reload()
   }
 }
 
