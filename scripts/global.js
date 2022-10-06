@@ -1,3 +1,9 @@
+const loaded = {
+  footer: false,
+  header: false,
+  datas: false,
+};
+
 if (localStorage.getItem("theme") === null) {
   localStorage.setItem(
     "theme",
@@ -22,11 +28,6 @@ checkUrl([
   },
 ]).then(() => {
   const dark = window.localStorage.getItem("theme") === "dark";
-
-  const loaded = {
-    footer: false,
-    header: false,
-  };
 
   if (!$("#header")) loaded.header = true;
   else
@@ -83,7 +84,7 @@ checkUrl([
       loaded.header = true;
 
       setTimeout(() => {
-        onDatasLoaded(loaded.header, loaded.footer);
+        onDatasLoaded(loaded);
       }, 2000);
     });
 
@@ -101,12 +102,12 @@ checkUrl([
       loaded.footer = true;
 
       setTimeout(() => {
-        onDatasLoaded(loaded.header, loaded.footer);
+        onDatasLoaded(loaded);
       }, 2000);
     };
 
   setTimeout(() => {
-    onDatasLoaded(loaded.header, loaded.footer);
+    onDatasLoaded(loaded);
   }, 2000);
 });
 
@@ -137,53 +138,51 @@ async function goto(link = "", target = "") {
   a.click();
 }
 
-function onDatasLoaded(header, footer) {
+function onDatasLoaded(loaded) {
   if (!location.href.replace(location.origin, "").includes("htm")) {
     goto("index.html");
   }
 
   if (!$("#theme")) {
-    if (header) {
+    if (loaded.header) {
       console.log("header loaded");
     }
 
-    if (footer) {
+    if (loaded.footer) {
       console.log("footer loaded");
+    }
+
+    if (loaded.datas) {
+      console.log("datas loaded");
     }
   }
 
+  if (loaded.header && loaded.footer && loaded.datas) {
+    if (!$("main") || $("main").innerText != "") {
+      if (!$("#theme")) {
+        const theme = document.createElement("script");
+        theme.id = "theme";
+        theme.src = "./scripts/theme.js?" + Date.now();
+        document.body.appendChild(theme);
+      }
+    } else {
+      reload();
+    }
+  }
+}
+
+function reload() {
   let suffix;
   if (location.href.includes("?")) suffix = "&";
   else suffix = "?";
 
   suffix += "i=";
+  console.log("reload");
+  sendMessage("page datas didn't load", "error");
 
-  if (header && footer) {
-    if ($("main") && $("main").innerText == "") {
-      console.log("reload");
-      sendMessage("page datas didn't load", "error");
-
-      if (location.href.includes("i=")) {
-        location.reload();
-      } else {
-        location.replace(location.href + suffix + Date.now());
-      }
-    } else if (!$("#theme")) {
-      console.log("datas loaded");
-
-      const theme = document.createElement("script");
-      theme.id = "theme";
-      theme.src = "./scripts/theme.js?" + Date.now();
-      document.body.appendChild(theme);
-    }
-  } else if (!(header && footer)) {
-    console.log("reload");
-    sendMessage("page datas didn't load", "error");
-
-    if (location.href.includes("i=")) {
-      location.reload();
-    } else {
-      location.replace(location.href + suffix + Date.now());
-    }
+  if (location.href.includes("i=")) {
+    location.reload();
+  } else {
+    location.replace(location.href + suffix + Date.now());
   }
 }
