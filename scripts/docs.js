@@ -64,6 +64,9 @@ fetch(`db.json`)
           h2.innerHTML = "مستندات کتابخونهٔ روبیکا";
           special.innerHTML = "انتخاب نسخه 🕵️‍♂️";
 
+          loaded.datas = true;
+          onDatasLoaded();
+
           return e;
         }
 
@@ -248,13 +251,13 @@ fetch(`db.json`)
               </li>`;
             }
           }
+
+          loaded.datas = true;
+          onDatasLoaded();
         });
       };
     });
-
-    loaded.datas = $("main").innerText == ""
-    onDatasLoaded();
-  })
+  });
 
 function loadDoc(version, doc) {
   window.location.assign(`?v=${version}&doc=${doc}`);
