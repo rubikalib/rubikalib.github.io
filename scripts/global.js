@@ -151,11 +151,9 @@ function onDatasLoaded(header, footer) {
   if (header && footer) {
     if ($("main") && $("main").innerText == "") {
       console.log("reload");
-      sendMessage("page datas didn't load","error")
+      sendMessage("page datas didn't load", "error");
       location.reload();
-    }
-
-    if (!$("#theme")) {
+    } else if (!$("#theme")) {
       console.log("datas loaded");
 
       const theme = document.createElement("script");
