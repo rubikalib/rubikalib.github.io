@@ -10,14 +10,14 @@ checkUrl([
     key: "darkmode",
     do: () => {
       localStorage.setItem("theme", "dark");
-      location.reload()
+      location.reload();
     },
   },
   {
     key: "lightmode",
     do: () => {
       localStorage.setItem("theme", "light");
-      location.reload()
+      location.reload();
     },
   },
 ]).then(() => {
@@ -84,7 +84,7 @@ checkUrl([
 
       setTimeout(() => {
         onDatasLoaded(loaded.header, loaded.footer);
-      }, 1500);
+      }, 2000);
     });
 
   if (!$("#footer")) loaded.footer = true;
@@ -102,12 +102,12 @@ checkUrl([
 
       setTimeout(() => {
         onDatasLoaded(loaded.header, loaded.footer);
-      }, 1500);
+      }, 2000);
     };
 
   setTimeout(() => {
     onDatasLoaded(loaded.header, loaded.footer);
-  }, 1500);
+  }, 2000);
 });
 
 function showLicense() {
@@ -138,8 +138,26 @@ async function goto(link = "", target = "") {
 }
 
 function onDatasLoaded(header, footer) {
+  if (!$("#theme")) {
+    if (header) {
+      console.log("header loaded");
+    }
+
+    if (footer) {
+      console.log("footer loaded");
+    }
+  }
+
   if (header && footer) {
+    if ($("main") && $("main").innerText == "") {
+      console.log("reload");
+      sendMessage("page datas didn't load","error")
+      location.reload();
+    }
+
     if (!$("#theme")) {
+      console.log("datas loaded");
+
       const theme = document.createElement("script");
       theme.id = "theme";
       theme.src = "./scripts/theme.js?" + Date.now();
