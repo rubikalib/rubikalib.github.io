@@ -154,6 +154,10 @@ function onDatasLoaded(loaded) {
 
     if (loaded.datas) {
       console.log("datas loaded");
+
+      if(!(loaded.footer && loaded.header)){
+        reload()
+      }
     }
   }
 
