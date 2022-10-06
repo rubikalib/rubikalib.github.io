@@ -1,7 +1,6 @@
 const loaded = {
   footer: false,
   header: false,
-  datas: false,
 };
 
 if (localStorage.getItem("theme") === null) {
@@ -149,6 +148,7 @@ async function goto(link = "", target = "") {
 }
 
 function onDatasLoaded(loaded) {
+//   debugger;
   if (!location.href.replace(location.origin, "").includes("htm")) {
     goto("index.html");
   }
@@ -171,34 +171,36 @@ function onDatasLoaded(loaded) {
     }
   }
 
-  if (loaded.header && loaded.footer && loaded.datas) {
-    if (!$("main") || $("main").innerText != "") {
+//   if (loaded.header && loaded.footer && loaded.datas) {
+//     if (!$("main") || $("main").innerText != "") {
       if (!$("#theme")) {
         const theme = document.createElement("script");
         theme.id = "theme";
         theme.src = "./scripts/theme.js?" + Date.now();
         document.body.appendChild(theme);
       }
-    } else {
-      reload();
-    }
-  }else if(!loaded.datas){
-    reload()
-  }
+//     } else {
+//       reload();
+//     }
+//   } else if (!loaded.datas) {
+    setTimeout(() => {
+      if ($("main") && $("main").innerText == "") reload();
+    }, 2500);
+//   }
 }
 
 function reload() {
-  let suffix;
-  if (location.href.includes("?")) suffix = "&";
-  else suffix = "?";
+  // let suffix;
+  // if (location.href.includes("?")) suffix = "&";
+  // else suffix = "?";
 
-  suffix += "i=";
-  console.log("reload");
-  sendMessage("page datas didn't load", "error");
+  // suffix += "i=";
+  // console.log("reload");
+  // sendMessage("page datas didn't load", "error");
 
-  if (location.href.includes("i=")) {
+  // if (location.href.includes("i=")) {
     location.reload();
-  } else {
-    location.replace(location.href + suffix + Date.now());
-  }
+  // } else {
+    // location.replace(location.href + suffix + Date.now());
+  // }
 }
