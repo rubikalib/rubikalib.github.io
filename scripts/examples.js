@@ -100,5 +100,8 @@ $("#header").onload = () => {
         ],
         ["#"]
       );
+
+      loaded.datas = $("main").innerText == "";
+      onDatasLoaded();
     });
 };
