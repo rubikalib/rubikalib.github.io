@@ -138,6 +138,10 @@ async function goto(link = "", target = "") {
 }
 
 function onDatasLoaded(header, footer) {
+  if (!location.href.replace(location.origin, "").includes("htm")) {
+    goto("index.html");
+  }
+
   if (!$("#theme")) {
     if (header) {
       console.log("header loaded");
@@ -148,11 +152,22 @@ function onDatasLoaded(header, footer) {
     }
   }
 
+  let suffix;
+  if (location.href.includes("?")) suffix = "&";
+  else suffix = "?";
+
+  suffix += "i=";
+
   if (header && footer) {
     if ($("main") && $("main").innerText == "") {
       console.log("reload");
       sendMessage("page datas didn't load", "error");
-      location.reload();
+
+      if (location.href.includes("i=")) {
+        location.reload();
+      } else {
+        location.replace(location.href + suffix + Date.now());
+      }
     } else if (!$("#theme")) {
       console.log("datas loaded");
 
@@ -164,6 +179,11 @@ function onDatasLoaded(header, footer) {
   } else if (!(header && footer)) {
     console.log("reload");
     sendMessage("page datas didn't load", "error");
-    location.reload();
+
+    if (location.href.includes("i=")) {
+      location.reload();
+    } else {
+      location.replace(location.href + suffix + Date.now());
+    }
   }
 }
