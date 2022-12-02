@@ -3,52 +3,61 @@ body {
 	padding: 0;
 }
 .toolbar {
-	display: flex;
+	color: white;
 }
 .content {
-	padding-top: 130px;
+	padding-top: 100px;
 }
 .fa-question-circle {
 	margin-top: 30%;
 	font-size: 30px;
 }
 .box {
+	color: white;
 	margin-left: 12px;
 	border-radius: 3px;
 	margin-right: 12px;
 	margin-bottom: 20px;
-	background: #F5F5F5;
-	box-shadow: #eeeeeeaa;
+	background: #212121;
 	border: 1px solid #000;
+	box-shadow: 0 0 8px #424242;
 }
 .item-title {
 	margin: 8px;
-	color: #574AE2;
+	color: rgb(253,173,13);
 	font-size: 18px;
 	font-weight: bold;
-	font-family: "vazirb";
+	font-family: vazirb;
+
+}
+.top-item {
+	border-top: 0.1px solid #000;
 }
 .item {
-	border: none; 
+	border: none;
+	display: flex;
 	outline: none;
 	font-size: 18px;
-	cursor: pointer; 
+	cursor: pointer;
 	overflow: hidden;
 	padding: 6px 12px;
 	position: relative;
 	border-radius: 3px;
 	padding-right: 20px;
-	font-family: "vazir";
+	font-family: vazir;
+	background: #212121;
 	border-top: 0.1px solid #000;
 }
 .right {
-	color: black;
 	float: right;
+	color: white;
+	font-weight: bold;
 }
 .left {
 	float: left;
-	color: darkgray;
-	
+	color: lightgray;
+	margin-right: auto;
+
 }
 .item span {
 	opacity: 0;
@@ -59,7 +68,7 @@ body {
 	border-radius: 50%;
 	position: absolute;
 	animation: ripple 1s;
-	background-color: rgba(0, 0, 0, 0.3);
+	/*background: rgba(0, 0, 0, 100);*/
 }
 @keyframes ripple {
 	from {
@@ -71,8 +80,4 @@ body {
 		opacity: 0;
 		transform: scale(20);
 	}
-}
-@font-face {
-	font-family: "vazir";
-	src: url("../assets/vazir.ttf");
 }
