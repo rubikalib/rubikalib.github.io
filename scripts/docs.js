@@ -1,4 +1,4 @@
-fetch(`db.json?${Date.now() + Math.random()}`)
+fetch(`db.json`)
   .then((data) => data.json())
   .then((result) => {
     const db = result,
@@ -36,7 +36,7 @@ fetch(`db.json?${Date.now() + Math.random()}`)
             $("main").innerHTML += `
               <div class="col-12 mb-5" data-aos="fade-up" data-aos-anchor-placement="top-center">
                 <div class="card rounded-4">   
-                  <a href="?v=${v}?${Date.now()}">
+                  <a href="?v=${v}">
                     <div class="card-body">
                       <h5 class="card-title text-center">
                         مستندات نسخهٔ : ${v}
@@ -204,7 +204,7 @@ fetch(`db.json?${Date.now() + Math.random()}`)
                       location.assign(
                         location.origin +
                           location.pathname +
-                          `?v=${version}&${Date.now() + Math.random()}`
+                          `?v=${version}`
                       );
                     } else if (result.isDenied) {
                       sendMessage("عملیات با موفقیت لغو شد", "warning");
@@ -241,9 +241,7 @@ fetch(`db.json?${Date.now() + Math.random()}`)
               }">
                   <div class="card-body">
                     <h5 class="card-title text-center">
-                      <a href="?v=${version}&doc=${links[i]}&${
-                Date.now() + Math.random()
-              }">
+                      <a href="?v=${version}&doc=${links[i]}">
                         ${titles[i]}
                       </a>
                     </h5>
@@ -261,6 +259,6 @@ fetch(`db.json?${Date.now() + Math.random()}`)
 
 function loadDoc(version, doc) {
   window.location.assign(
-    `?v=${version}&doc=${doc}&${Date.now() + Math.random()}`
+    `?v=${version}&doc=${doc}`
   );
 }

@@ -1,3 +1,8 @@
+const loaded = {
+  footer: false,
+  header: false,
+};
+
 if (localStorage.getItem("theme") === null) {
   localStorage.setItem(
     "theme",
@@ -10,26 +15,25 @@ checkUrl([
     key: "darkmode",
     do: () => {
       localStorage.setItem("theme", "dark");
-      location.reload()
+      location.reload();
     },
   },
   {
     key: "lightmode",
     do: () => {
       localStorage.setItem("theme", "light");
-      location.reload()
+      location.reload();
     },
   },
 ]).then(() => {
   const dark = window.localStorage.getItem("theme") === "dark";
 
-  const loaded = {
-    footer: false,
-    header: false,
-  };
-
-  if (!$("#header")) loaded.header = true;
-  else
+  if (!$("#header")) {
+    loaded.header = true;
+    setTimeout(() => {
+      onDatasLoaded(loaded);
+    }, 2000);
+  } else {
     $("#header").addEventListener("load", function () {
       const header = $("#header").contentDocument;
 
@@ -83,12 +87,17 @@ checkUrl([
       loaded.header = true;
 
       setTimeout(() => {
-        onDatasLoaded(loaded.header, loaded.footer);
-      }, 1500);
+        onDatasLoaded(loaded);
+      }, 2000);
     });
+  }
 
-  if (!$("#footer")) loaded.footer = true;
-  else
+  if (!$("#footer")) {
+    loaded.footer = true;
+    setTimeout(() => {
+      onDatasLoaded(loaded);
+    }, 2000);
+  } else {
     $("#footer").onload = () => {
       const footer = $("#footer").contentDocument;
       footer.querySelectorAll(".nav-link").forEach((element) => {
@@ -101,13 +110,14 @@ checkUrl([
       loaded.footer = true;
 
       setTimeout(() => {
-        onDatasLoaded(loaded.header, loaded.footer);
-      }, 1500);
+        onDatasLoaded(loaded);
+      }, 2000);
     };
+  }
 
   setTimeout(() => {
-    onDatasLoaded(loaded.header, loaded.footer);
-  }, 1500);
+    onDatasLoaded(loaded);
+  }, 2000);
 });
 
 function showLicense() {
@@ -137,36 +147,60 @@ async function goto(link = "", target = "") {
   a.click();
 }
 
-(async function noCache() {
-  $("*[src]").forEach((el) => {
-    el.src = el.src + "?" + Date.now();
-  });
+function onDatasLoaded(loaded) {
+//   debugger;
+  if (!location.href.replace(location.origin, "").includes("htm")) {
+    goto("index.html");
+  }
 
-  // $("*[href]").forEach((el) => {
-  //   el.href = el.href + "?" + Date.now();
-  // });
-})();
-
-function onDatasLoaded(header, footer) {
-  if (header && footer) {
-    const menu =
-        ($("main section:not(.document) ol") == undefined ||
-            $("main section:not(.document) ol").innerHTML == "") &&
-          $("#error") == undefined,
-      doc = $(".document") && $("#error") ,
-      versions = $("main .col-12") ,
-      examples = ($(".tab-content") && $(".nav.nav-tabs")) ;
-
-    if (menu && doc && versions && examples) {
-      console.log("redirect");
-      location.reload();
+  if (!$("#theme")) {
+    if (loaded.header) {
+      console.log("header loaded");
     }
 
-    if (!$("#theme")) {
-      const theme = document.createElement("script");
-      theme.id = "theme";
-      theme.src = "./scripts/theme.js?" + Date.now();
-      document.body.appendChild(theme);
+    if (loaded.footer) {
+      console.log("footer loaded");
+    }
+
+    if (loaded.datas) {
+      console.log("datas loaded");
+
+      // if(!(loaded.footer && loaded.header)){
+      //   reload()
+      // }
     }
   }
+
+//   if (loaded.header && loaded.footer && loaded.datas) {
+//     if (!$("main") || $("main").innerText != "") {
+      if (!$("#theme")) {
+        const theme = document.createElement("script");
+        theme.id = "theme";
+        theme.src = "./scripts/theme.js?" + Date.now();
+        document.body.appendChild(theme);
+      }
+//     } else {
+//       reload();
+//     }
+//   } else if (!loaded.datas) {
+    setTimeout(() => {
+      if ($("main") && $("main").innerText == "") reload();
+    }, 2500);
+//   }
+}
+
+function reload() {
+  // let suffix;
+  // if (location.href.includes("?")) suffix = "&";
+  // else suffix = "?";
+
+  // suffix += "i=";
+  // console.log("reload");
+  // sendMessage("page datas didn't load", "error");
+
+  // if (location.href.includes("i=")) {
+    location.reload();
+  // } else {
+    // location.replace(location.href + suffix + Date.now());
+  // }
 }
